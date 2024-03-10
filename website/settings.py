@@ -130,10 +130,10 @@ USE_TZ = True
 
 
 
-EMAIL_HOST = 'smtp.hostinger.com'
-EMAIL_HOST_USER = 'registration@atvchampionship.com'
-EMAIL_HOST_PASSWORD = 'A03e08fbb426b534232a9b45533a31b3e@'
-EMAIL_PORT = 465
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mail@atvchampionship.com'
+EMAIL_HOST_PASSWORD = 'vbxepmsrejybpyju'
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 # Static files (CSS, JavaScript, Images)
