@@ -1028,4 +1028,4 @@ def teamdetails(request):
             if request.session['verified']:
                 return render(request, 'user/regdatainp.html')
         except:
-            return HttpResponseRedirect('/registerteam/')
+            return render(request, 'user/regdatainp.html')

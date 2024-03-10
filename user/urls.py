@@ -29,7 +29,7 @@ urlpatterns = [
     path('carnumber/', views.carnumber),
     path('booknumber/', views.confirmcarnum),
     path('bookingstatus/', views.bookingconf),
-    path('registerteam/', views.newreg),
+    path('registerteam/', views.teamdetails),
     path('verify-otp/', views.verifyotp),
     path('teamdetails/', views.teamdetails),
     # Additional URLs with views.portalclosed
@@ -55,7 +55,7 @@ urlpatterns = [
     path('carnumber/', views.carnumber),
     path('booknumber/', views.confirmcarnum),
     path('bookingstatus/', views.bookingconf),
-    path('registerteam/', views.newreg),
+    path('registerteam/', views.teamdetails),
     path('verify-otp/', views.verifyotp),
     path('teamdetails/', views.teamdetails),
 ]
