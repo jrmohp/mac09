@@ -153,10 +153,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\','/')
 
 
-CORS_ALLOWED_ORIGINS = [
-    "https://user.atvchampionship.com",
-    # Add more origins if needed
-]
-# settings.py
-
-CORS_ALLOW_ALL_ORIGINS = False
