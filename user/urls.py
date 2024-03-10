@@ -29,7 +29,7 @@ urlpatterns = [
     path('carnumber/', views.carnumber),
     path('booknumber/', views.confirmcarnum),
     path('bookingstatus/', views.bookingconf),
-    path('registerteam/', views.teamdetails),
+    path('registerteam/', views.newreg),
     path('verify-otp/', views.verifyotp),
     path('teamdetails/', views.teamdetails),
     # Additional URLs with views.portalclosed
