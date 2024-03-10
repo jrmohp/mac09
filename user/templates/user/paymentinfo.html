@@ -1,0 +1,199 @@
+{% extends "user/base.html" %}
+
+{% load static %}
+
+
+{% block profright %}
+
+
+
+/media/{{tid.teamlogo}}
+{% endblock %}
+
+
+
+{% block p1 %}
+
+    {{p1}}
+
+{% endblock %}
+{% block p1h %}{{p1h}} {% endblock %}
+
+{% load mathfilters %}
+{% block carnum %}
+
+{% if iselec %}
+E-{{cnum|sub:100}}
+{% else %}
+
+{{cnum}}
+{% endif %}
+{% endblock %}
+
+
+{% block p2 %}
+
+    {{p2}}
+
+{% endblock %}
+{% block p2h %}{{p2h}} {% endblock %}
+
+{% block members %}{{memnum}}{% endblock %}
+{% block per %} {{memper}}{% endblock %}
+
+{% block actlog %}
+
+  {% for act in log %}
+
+  <li class="chat-list">
+                          <div class="chat-body"> <a href="">
+                            <div class="chat-data"> <img class="user-img img-circle" src="{% static 'plugins/assets/img/users/avatar-2.jpg' %}" alt="user" />
+                              <div class="user-data"> <span class="name block capitalize-font">{{act.activitydetails}}</span> <span class="time block truncate txt-grey">{{act.entered}}</span> </div>
+                              <div class="status away"></div>
+                              <div class="clearfix"></div>
+                            </div>
+                            </a> <a href="">
+                            </div>
+                        </li>
+
+
+
+{% endfor %}
+
+
+
+
+
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+  <title>Payments | Mega ATV Championship  </title>
+
+
+
+
+
+
+
+
+
+
+{% if tid.payment1 and  tid.payment2 %}
+
+
+
+
+
+ <div class="row">
+                    <div class="col-md-12">
+                        <div class="white-box">
+
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-12">
+                                     <img src="{% static 'tick.gif' %}" height="10%">
+                                </div>
+
+                                <div class="col-lg-8 col-md-8 col-sm-12">
+                                    <br>
+                                     <center><h2>Peace Here! <br>You Have Already Paid The Full Amount.</h2></center>
+                                </div>
+
+
+
+
+                            </div>
+
+
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+{% endif %}
+
+
+
+     {% if not tid.payment1 or not  tid.payment2 %}
+  <div class="row" id="body2">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+
+             <div class="alert alert-warning" style="word-spacing:5px;">Please click on the link below and pay to complete your registration. After completion of the payment, please upload the receipt to the portal with the available option. Your payment status will be updated within 24 hours of payment.</div>
+                <div class="col-md-2 col-sm-11 col-md-push-5">
+                    <a href="https://atvchampionship.com/reg-guidelines/" target="_blank" style="width:100%;" class="btn btn-success">Pay</a>
+                </div>
+                <!--<br>
+                <br>:wq
+:wq
+
+                <br>
+                <div class="col-md-6 col-sm-12">
+                <p>
+                <strong>Guide lines for  payment: -</strong>
+                <br></p>
+
+                <p><strong>1.Payment Through SBI Collect</strong><br>
+        1. Login to www.onlinesbi.com. Select State Bank Collect available on the top (pre
+login page) or go through the link
+(https://www.onlinesbi.com/prelogin/institutiontypedisplay.htm )
+<br>2. Accept the terms and conditions and click “PROCEED”
+<br>3. Select State “ODISHA” and Type of corporate/Institution type “COMMERCIAL SERVICES”.
+<br>4. Select “MECHIES AUTOSPORTS INDIA PRIVATE LIMITED” under Educational
+Institutions.
+<br>5. Select Category “REGISTRATION FEE/ PAYMENT”.
+<br>6. Enter and click SUBMIT. Uploaded information gets populated and click “CONFIRM” to proceed.
+<br>7. If all details entered are correctly populated, click “CONFIRM” to proceed.
+<br>8. Select appropriate Payment Category, fill the details correctly and make payment
+as per your convenience. (Options available are payment of fees through SBI Net
+Banking, State Bank ATM cum Debit Cards, Other Bank Debit / Credit Cards, Other
+Bank’s Net Banking and SBI BRANCH).
+
+
+
+       <strong> <p>2.<b>Cash deposit at any branch of State bank of India.</b></p></strong>
+            <p>A/c name- Mechies Autosports India Private Limited</p>
+            <p>A/C No-35257209863</p>
+            <p>A/c Type-Current.</p>
+
+        <p><strong>3.Demand draft in favor of “Mechies Autosports India Private Limited” payable at “Bhubaneswar”.</strong></p>
+        <p> Demand draft should be sent to the following address.</p>
+
+            Zonal Office,
+            Mechies Autosports India Private Limited
+            8, Surya Vihar, Patia,
+            Bhubaneswar odisha-751024.
+
+            <p><strong>4.RTGS/NEFT</strong><br>
+            A/c name- Mechies Autosports India Private Limited
+            A/c No-35257209863
+            IFSC-SBIN0010250</p>
+
+
+
+            <p>
+
+            <strong>After payment the scanned copy of acknowledgement/counter foil/Demand draft/ need to be submitted thorugh the option available within 24 hrs of payment.</strong>
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+            </p>
+<br><br>
+
+
+                </div>
+
+
+
+-->
+
+{% endif %}
+
+{% endblock %}

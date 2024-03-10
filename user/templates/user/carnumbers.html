@@ -1,0 +1,192 @@
+{% extends "user/base.html" %}
+
+{% load static %}
+{% load mathfilters %}
+
+
+
+
+
+{% block profright %}
+
+
+
+/media/{{tid.teamlogo}}
+{% endblock %}
+
+
+
+{% block p1 %}
+
+    {{p1}}
+
+{% endblock %}
+{% block p1h %}{{p1h}} {% endblock %}
+
+{% block carnum %}
+{% if iselec %}
+E-{{cnum|sub:100}}
+{% else %}
+
+{{cnum}}
+{% endif %}
+{% endblock %}
+{% block p2 %}
+
+    {{p2}}
+
+{% endblock %}
+{% block p2h %}{{p2h}} {% endblock %}
+
+{% block members %}{{memnum}}{% endblock %}
+{% block per %} {{memper}}{% endblock %}
+
+{% block actlog %}
+
+{% for act in log %}
+
+  <li class="chat-list">
+                          <div class="chat-body"> <a href="">
+                            <div class="chat-data"> <img class="user-img img-circle" src="{% static 'plugins/assets/img/users/avatar-2.jpg' %}" alt="user" />
+                              <div class="user-data"> <span class="name block capitalize-font">{{act.activitydetails}}</span> <span class="time block truncate txt-grey">{{act.entered}}</span> </div>
+                              <div class="status away"></div>
+                              <div class="clearfix"></div>
+                            </div>
+                            </a> <a href="">
+                            </div>
+                        </li>
+
+
+
+{% endfor %}
+
+
+
+
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Select Car Number</title>
+
+<style>
+.btn.disabled {
+    pointer-events: auto;
+}
+</style>
+</head>
+<body>
+
+
+
+{% if carnumstat %}
+
+
+<div class="row">
+                    <div class="col-md-12">
+                        <div class="well-lg card-view">
+
+<br>
+                                            <br>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-12">
+                                     <img src="{% static 'tick.gif' %}" height="100%">
+                                </div>
+
+                                <div class="col-lg-8 col-md-8 col-sm-12">
+                                    <br>
+                                     <center><h2>Peace Here! <br>You Have Already Booked The Car Number</h2></center>
+                                </div>
+
+
+                                            <br>
+                                            <br>
+
+                            </div>
+
+
+
+                    </div>
+                </div>
+
+
+
+
+{% else %}
+
+
+<div class="well-lg card-view p-l-20 p-r-20"><a href="javascript:void(0)">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <h3 class="box-title m-b-0">Choose Car Number</h3>
+
+
+
+
+Note : Car Number Can Only Be Booked After Second Phase Payment
+
+<div class="row"><a href="javascript:void(0)">
+                        {% for i in carnums %}
+
+
+                        <div class="col-md-6 col-lg-2 col-sm-6 col-xs-12 " style="margin: 2%">
+
+                        {% if i.booked %}
+                            {% if iselec %}
+                             <a href="#"><button class="btn-block btn-danger" disabled>E-{{ i.number|sub:100 }}</button></a>
+                            {% else %}
+                             <a href="#"><button class="btn-block btn-danger" disabled>{{ i.number }}</button></a>
+                            {% endif %}
+                        {% else %}
+                            {% if iselec %}
+                                <button class="btn-block btn-success" onclick="sendnum({{ i.number }})">E-{{ i.number|sub:100 }}</button>
+                             {% else %}
+                           <button class="btn-block btn-success" onclick="sendnum({{ i.number }})">{{ i.number }}</button>
+                            {% endif %}
+                        {% endif %}
+
+                        </div>
+
+
+
+
+
+
+                                {% endfor %}
+
+
+                            </div>
+                        </div>
+
+</body>
+
+    <script>
+
+    function  sendnum(num)
+    {
+        confirm("Are You Sure To Book This Number?");
+        window.location.replace("/booknumber?num="+num);
+    }
+
+
+
+    </script>
+
+{% endif %}
+{% endblock %}

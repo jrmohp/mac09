@@ -1,0 +1,193 @@
+
+{% extends "user/base.html" %}
+
+{% load static %}
+
+{% block profright %}
+
+
+
+/media/{{tid.teamlogo}}
+{% endblock %}
+
+
+
+{% block p1 %}
+
+    {{p1}}
+
+{% endblock %}
+{% block p1h %}{{p1h}} {% endblock %}
+
+
+
+{% load mathfilters %}
+{% block carnum %}
+
+{% if iselec %}
+E-{{cnum|sub:100}}
+{% else %}
+
+{{cnum}}
+{% endif %}
+{% endblock %}
+
+
+{% block p2 %}
+
+    {{p2}}
+
+{% endblock %}
+{% block p2h %}{{p2h}} {% endblock %}
+
+{% block members %}{{memnum}}{% endblock %}
+{% block per %} {{memper}}{% endblock %}
+
+{% block actlog %}
+
+  {% for act in log %}
+
+  <li class="chat-list">
+                          <div class="chat-body"> <a href="">
+                            <div class="chat-data"> <img class="user-img img-circle" src="{% static 'plugins/assets/img/users/avatar-2.jpg' %}" alt="user" />
+                              <div class="user-data"> <span class="name block capitalize-font">{{act.activitydetails}}</span> <span class="time block truncate txt-grey">{{act.entered}}</span> </div>
+                              <div class="status away"></div>
+                              <div class="clearfix"></div>
+                            </div>
+                            </a> <a href="">
+                            </div>
+                        </li>
+
+
+
+{% endfor %}
+
+
+
+
+
+{% endblock %}
+
+{% load static %}
+
+
+
+
+
+
+{% block content %}
+
+<title>View Team | Mega ATV Championship 2019</title>
+
+
+
+<div class="white-box">
+
+                            <div class="scrollable">
+                                <div class="table-responsive">
+
+{% for mem in mdata %}
+
+       {% if forloop.counter0|divisibleby:3 %}
+
+                                    <br>
+                                    {% endif %}
+
+
+                    <div class="col-md-4 col-xs-12">
+          <div class="panel panel-default card-view">
+            <div class="panel-wrapper collapse in">
+              <div class="panel-body pt-0">
+                <div class="text-center">
+                  <div class="profile-box ">
+
+                    <div class="profile-cover-pic" style="background-image: url('/media/{{mem.idproof}}')">
+
+
+                      <div class="profile-image-overlay"></div>
+
+                    </div>
+                    <div class="profile-info text-center">
+
+                        <div class="profile-img-wrap" data-lightbox="image-1">
+
+                            <img class="inline-block mb-10 example-image" src="/media/{{mem.profilepic}}" alt="user" data-lightbox="image-1">
+
+
+
+
+
+
+
+
+
+
+
+                      </div>
+                      <h5 class="block mt-5 mb-5 weight-500 capitalize-font txt-primary">{{mem.mname}}</h5>
+                      <h6 class="block capitalize-font pb-10">{{mem.role}}</h6>
+                        <a href="/editteam/?member={{mem.id}}"><i class="mdi mdi-grease-pencil" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></i></a>
+                        <i class="mdi mdi-sword-cross" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" onclick="deletemem({{mem.id}})"></i>
+                    </div>
+                    <div class="social-info">
+                      <div class="row">
+                        <div class="col-xs-4 text-center"> <span class="counts block head-font"><span class="">{{mem.bg}}</span></span> <span class="counts-text block">Blood Group</span> </div>
+                        <div class="col-xs-4 text-center"> <span class="counts block head-font"><span class="counter-anim">{{mem.age}}</span></span> <span class="counts-text block">Age</span> </div>
+                        <div class="col-xs-4 text-center"> <span class="counts block head-font"><span class="counter-anim">{{mem.year}}</span></span> <span class="counts-text block">Grad. Year</span> </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr class="mt-10 mb-0">
+                  <div class="panel-body pt-10"> <span class="text-muted m-0 font-30 pl-0"><i class="mdi mdi-email text-success"></i> </span>
+                    <h6 class="font-normal text-grey">{{mem.email}}</h6>
+                    <small class="text-muted pt-15 font-30 pl-0 db"><i class="mdi mdi-cellphone-android text-default"></i></small>
+                    <h6 class="font-normal text-grey">{{mem.phn}}</h6>
+
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+     {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+<script>
+
+    function deletemem(member)
+    {
+
+        alert("Are You Sure To Delete The Member?");
+        window.location.replace("/deletemem/?member="+member);
+
+    }
+
+
+</script>
+{% endblock %}
+
+

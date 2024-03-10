@@ -1,0 +1,172 @@
+{% extends "asi/base.html" %}
+
+
+
+
+
+
+
+
+
+
+{% load staticfiles %}
+{% block profright %}
+
+
+
+/media/{{tid.teamlogo}}
+{% endblock %}
+
+
+
+{% block p1 %}
+
+    {{p1}}
+
+{% endblock %}
+{% block p1h %}{{p1h}} {% endblock %}
+
+{% block carnum %}{{cnum}}{% endblock %}
+{% block p2 %}
+
+    {{p2}}
+
+{% endblock %}
+{% block p2h %}{{p2h}} {% endblock %}
+
+{% block members %}{{memnum}}{% endblock %}
+{% block per %} {{memper}}{% endblock %}
+
+{% block actlog %}
+
+  {% for act in log %}
+
+  <li class="chat-list">
+                          <div class="chat-body"> <a href="">
+                            <div class="chat-data"> <img class="user-img img-circle" src="{% static 'plugins/assets/img/users/avatar-2.jpg' %}" alt="user" />
+                              <div class="user-data"> <span class="name block capitalize-font">{{act.activitydetails}}</span> <span class="time block truncate txt-grey">{{act.entered}}</span> </div>
+                              <div class="status away"></div>
+                              <div class="clearfix"></div>
+                            </div>
+                            </a> <a href="">
+                            </div>
+                        </li>
+
+
+
+{% endfor %}
+
+
+
+
+
+{% endblock %}
+
+{% block content %}
+
+<title>Dashboard | Mega ATV Championship 2019</title>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+    <div class="panel panel-primary card-view">
+
+            <div class="panel-heading">
+              <div class="pull-left">
+                <h6 class="panel-title txt-light">{{ pgstin.teamid }}</h6>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="panel-wrapper collapse in">
+              <div class="panel-body">
+                <p>
+                 <img src="/media/{{ proof }}">
+<blockquote>
+
+                  Legal Name : {{ pgstin.lname }}
+                  <br>
+                  Full Address : {{ pgstin.addrs }}
+                  <br>
+
+                  State : {{ pgstin.state }}
+
+                  <br>
+
+                  GSTIN : {{ pgstin.gst }}
+
+                  <br>
+
+                  State Code : {{ pgstin.sc }}
+
+              </blockquote>
+
+
+
+
+                  <form method="post">
+
+                      {% csrf_token %}
+
+                    <label class="col-md-12">Invoice Number<span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control"  name="invno"  id="gstin" onchange="statecode()"> </div>
+
+
+                       <label class="col-md-12">Invoice Date <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="date" class="form-control"  name="invdate" " id="gstin" onchange="statecode()"> </div>
+
+                       <label class="col-md-12">Phase <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control"  name="phase" value="{{ pid.phase }}" minlength="15" maxlength="15" id="gstin" onchange="statecode()"> </div>
+
+
+                      <input type="hidden" value="{{ pgstin.id }}" name="gstin">
+
+                      <input type="hidden" value="{{ pid.id }}" name="pid">
+
+
+                      <button type="submit" class="btn btn-success">Submit</button>
+                  </form>
+
+
+
+
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+<script>
+
+
+
+
+function updatep(id) {
+
+    window.location.assign("/asi/update/?id="+id);
+
+};
+
+
+s
+
+</script>
+
+
+
+
+
+
+
+{% endblock %}
+
+

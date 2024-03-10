@@ -1,0 +1,182 @@
+{% extends "asi/base.html" %}
+
+
+
+
+
+
+
+
+
+
+{% load staticfiles %}
+{% block profright %}
+
+
+
+/media/{{tid.teamlogo}}
+{% endblock %}
+
+
+
+{% block p1 %}
+
+    {{p1}}
+
+{% endblock %}
+{% block p1h %}{{p1h}} {% endblock %}
+
+{% block carnum %}{{cnum}}{% endblock %}
+{% block p2 %}
+
+    {{p2}}
+
+{% endblock %}
+{% block p2h %}{{p2h}} {% endblock %}
+
+{% block members %}{{memnum}}{% endblock %}
+{% block per %} {{memper}}{% endblock %}
+
+{% block actlog %}
+
+  {% for act in log %}
+
+  <li class="chat-list">
+                          <div class="chat-body"> <a href="">
+                            <div class="chat-data"> <img class="user-img img-circle" src="{% static 'plugins/assets/img/users/avatar-2.jpg' %}" alt="user" />
+                              <div class="user-data"> <span class="name block capitalize-font">{{act.activitydetails}}</span> <span class="time block truncate txt-grey">{{act.entered}}</span> </div>
+                              <div class="status away"></div>
+                              <div class="clearfix"></div>
+                            </div>
+                            </a> <a href="">
+                            </div>
+                        </li>
+
+
+
+{% endfor %}
+
+
+
+
+
+{% endblock %}
+
+{% block content %}
+
+<title>Dashboard | Mega ATV Championship 2019</title>
+
+
+
+
+
+
+
+
+
+
+    <div class="panel panel-primary card-view">
+            <div class="panel-heading">
+              <div class="pull-left">
+                <h6 class="panel-title txt-light">panel primary</h6>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="panel-wrapper collapse in">
+              <div class="panel-body">
+                <p>
+
+<input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+  <table class="table table-bordered " style="overflow-x:auto">
+    <thead>
+      <tr>
+        <th>TID</th>
+        <th>Team Name</th>
+          <th>Type</th>
+          <th>C. Name</th>
+          <th>F. Name</th>
+          <th>Institution</th>
+          <th>Status</th>
+	<th>Email </th>
+<th>Phone</th>
+<th>Address</th>
+<th>Regd Time</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+     {% for i in teams %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <td>{{ i.teamid }}</td>
+    <td>{{ i.teamname }}</td>
+     <td>{{ i.vtype }}</td>
+      <td>{{ i.tcap }}</td>
+       <td>{{ i.coach }}</td>
+                       <td>{{ i.iname }}</td>
+
+
+          {% if i.payment2 == True %}
+
+
+
+
+                <td><span class="label label-success">Both Phase</span> </td>
+
+             {% elif i.payment1 == True %}
+                 <td><span class="label label-warning">First Phase</span> </td>
+
+            {% else %}
+                 <td><span class="label label-danger">Unpaid</span> </td>
+
+
+         {% endif %}
+
+<td>{{ i.email }}</td>
+<td>{{ i.phn }}</td>
+<td>{{ i.address }}</td>
+<td>{{ i.created_at }}</td>
+  </tr>
+
+
+                    {% endfor %}
+    </tbody>
+  </table>
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+
+
+  <script src="{% static 'plugins/vendors/bower_components/jquery/dist/jquery.min.js' %}"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+
+
+
+{% endblock %}
+
+

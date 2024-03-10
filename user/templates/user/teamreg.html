@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+
+<title>Sign Up | Mega ATV Championship 2019</title>
+<html lang="en">
+{% load static %}
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'plugins/images/favicon.png' %}">
+<title>Registration | Mega ATV Championship 2019</title>
+<!-- Bootstrap Core CSS -->
+<link href="{% static 'reg/bootstrap.min.css' %}" rel="stylesheet">
+<!-- animation CSS -->
+<link href="{% static 'reg/animate.css' %}" rel="stylesheet">
+<!-- Wizard CSS -->
+<link href="{% static 'reg/steps.css' %}" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="{% static 'reg/style.css' %}" rel="stylesheet">
+<!-- color CSS -->
+<link href="{% static 'reg/default.css' %}" id="theme"  rel="stylesheet">
+<!-- HTML5 Shim and Respond.js' %} IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js' %} doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js' %}/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+    <style>
+        section{
+            background-image: url("{% static 'regback.jpg' %}");
+            background-position: right;
+        }
+        
+        body{
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<!-- Preloader -->
+<div class="preloader">
+  <div class="cssload-speeding-wheel"></div>
+</div>
+
+{% if signupmsg %}
+
+
+
+                                                   <div class="alert alert-danger alert-dismissable">
+                                                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                       {{signupmsg}}
+                                                   </div>
+
+
+
+
+                                                </ul>
+
+
+
+
+                                        {% endif %}
+
+
+<section id="wrapper" class="step-register">
+  <div class="register-box">
+    <div class="" style="margin-top: -2em">
+       <a href="https://atvchampionship.com" class="text-center db m-b-40"><img src="{% static 'plugins/images/admin-text.png' %}" alt="Home" /><br/><img src="https://www.atvchampionship.com/wp-content/uploads/2017/06/Logo-final-final-max-MEGAATV.jpg" alt="Home" /></a>
+      <!-- multistep form -->
+        <form id="msform" method="POST" action="" style="margin-top: -3em">
+            {% csrf_token %}
+        <!-- progressbar -->
+        <ul id="eliteregister">
+        <li class="active">Team Details</li>
+        <li>Institution Details</li>
+        <li>Contact Details</li>
+        </ul>
+        <!-- fieldsets -->
+        <fieldset>
+        <h2 class="fs-title">Team Details</h2>
+        {{frm.teamname}} {{frm.size}}{{frm.email}}{{frm.password}}{{frm.tcap}}
+        <input type="button" name="next" class="next action-button" value="Next" />
+        </fieldset>
+        <fieldset>
+        <h2 class="fs-title">Institution Details</h2>
+        <h3 class="fs-subtitle">You're 1 Step Away From Gateway Of Thrill</h3>
+
+        {{frm.coach}}{{frm.iname}}{{frm.itype}}{{frm.irec}}
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <input type="button" name="next" class="next action-button" value="Next" />
+        </fieldset>
+        <fieldset>
+        <h2 class="fs-title">Contact Details</h2>
+        <h3 class="fs-subtitle">A bit more</h3>
+       {{frm.phn}}{{frm.altphn}}{{frm.address}}
+
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+
+            <button type="submit" class="btn btn-success btn-lg">Submit</button>
+        </fieldset>
+        </form>
+        <div class="clear"></div>
+    </div>
+  </div>
+</section>
+<!-- jQuery -->
+<script src="{% static 'reg/jquery.min.js' %}"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="{% static 'reg/bootstrap.min.js' %}"></script>
+<!-- Menu Plugin JavaScript -->
+<script src="{% static 'reg/sidebar-nav.min.js' %}"></script>
+<script src="{% static 'reg/jquery.easing.min.js' %}"></script>
+<script src="{% static 'reg/register-init.js' %}"></script>
+<!--slimscroll JavaScript -->
+<script src="{% static 'reg/jquery.slimscroll.js' %}"></script>
+<!--Wave Effects -->
+<script src="{% static 'reg/waves.js' %}"></script>
+<!-- Custom Theme JavaScript -->
+<script src="{% static 'reg/custom.min.js' %}"></script>
+<!--Style Switcher -->
+<script src="{% static 'reg/jQuery.style.switcher.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Team Details</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/nouislider/nouislider.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <style>.isa_error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+}</style>
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-img">
+                    <img src="https://atvchampionship.com/wp-content/uploads/2021/06/form-img.jpg" alt="">
+                    <div class="signup-img-content">
+                        <h2>Register now </h2>
+                        <p>while seats are available !</p>
+                    </div>
+                </div>
+                <div class="signup-form">
+                    <form method="POST" class="register-form" id="register-form">
+                        <div class="form-row">
+                            <div class="form-group">
+
+
+                                <div class="form-input">
+                                    <label for="first_name" class="required">Team Name</label>
+                                    <input type="text" name="team_name" id="team_name" required/>
+                                </div>
+
+
+                                 <div class="form-input">
+                                    <label for="first_name" class="required">Institution Name</label>
+                                    <input type="text" name="college_name" id="college_name"  required/>
+                                </div>
+
+
+{% csrf_token %}
+                                 <div class="form-radio">
+                                    <div class="label-flex">
+                                        <label for="payment">Institution Type</label>
+
+                                    </div>
+                                    <div class="form-radio-group">
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="payment" id="cash" value="College" checked="" required>
+                                            <label for="cash">College</label>
+                                            <span class="check"></span>
+                                        </div>
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="payment" id="cheque" value="University" required>
+                                            <label for="cheque">University</label>
+                                            <span class="check"></span>
+                                        </div>
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="payment" id="demand" value="Others" required>
+                                            <label for="demand">Other</label>
+                                            <span class="check"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="form-input">
+                                    <label for="email" class="required">Email</label>
+                                    <input type="email" name="email" id="email" required/>
+                                </div>
+
+
+
+
+
+                                <div class="form-input">
+                                    <label for="phone_number" class="required">Alternate Contact number</label>
+                                    <input type="text" name="phone_number" placeholder="10 Digit Phone Number" required id="phone_number" minlength="10" maxlength="10" pattern="[0-9]{10}"/>
+                                </div>
+
+                                <div class="form-input">
+                                    <label for="company" class="required">City</label>
+                                    <input type="text" name="city" id="company" placeholder="Nearest Well-Known City Recommended"  required/>
+                                </div>
+
+
+
+   <div class="label-flex">
+                                        <label for="vtype">Vehicle Type</label>
+
+                                    </div>
+
+                                      <div class="form-radio">
+                                    <div class="label-flex">
+                                        <label for="vtype">Combustion</label>
+
+                                    </div>
+                                    <div class="form-radio-group">
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="vtype" id="combustion" value="Combustion" checked="" required>
+                                            <label for="combustion">Combustion</label>
+                                            <span class="check"></span>
+                                        </div>
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="vtype" id="electric" value="Electric" required>
+                                            <label for="electric">Electric</label>
+                                            <span class="check"></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                 <div class="form-radio">
+                             <div class="label-flex">
+                                        <label for="vtype">Quad</label>
+
+                                    </div>
+                                    <div class="form-radio-group">
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="vtype" id="quad-combustion" value="Quad-Combustion" checked="" required>
+                                            <label for="quad-combustion">Combustion</label>
+                                            <span class="check"></span>
+                                        </div>
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="vtype" id="quad-electric" value="Quad-Electric" required>
+                                            <label for="quad-electric">Electric</label>
+                                            <span class="check"></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <div class="form-group">
+
+                                <div class="form-input">
+                                    <label for="last_name" class="required">Captain name</label>
+                                    <input type="text" name="cap_name" id="cap_name"  required/>
+                                </div>
+
+
+                           <div class="form-input">
+                                    <label for="first_name" class="required">Coach Name</label>
+                                    <input type="text" name="coach_name" id="caoch_name" required/>
+                                </div>
+
+
+                                <div class="form-input">
+                                    <label for="first_name" class="required">Institute Recognized By</label>
+                                    <input type="text" name="recby" placeholder="AICTE/University Name" id="recby"  required/>
+                                </div>
+
+
+
+                                  <div class="form-input">
+                                    <label for="first_name" class="required">Team Size</label>
+                                    <input type="number" name="size" id="size" placeholder="Maximum 30" min="1" max="30" required />
+                                      <div class="error"></div>
+                                </div>
+
+
+
+                                <div class="form-input">
+                                    <label for="first_name" class="required">Communication Address</label>
+                                    <input type="text" name="addrs" placeholder="With Pincode" id="recby"  required/>
+                                </div>
+
+     <div class="form-input">
+                                    <label for="first_name" class="required">State</label>
+                                    <input type="text" name="state" placeholder="State" id="recby"  required/>
+                                </div>
+                            <div class="form-input">
+                                    <label for="company" class="required">Password</label>
+                                    <input type="password" name="pass" id="company" required/>
+                                </div>
+
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <div class="isa_error"> {{ message }}</div>
+
+
+
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+                                <br> <br><br>
+                        <div class="form-submit">
+                            <input type="submit" value="Submit" class="submit" id="submit" name="submit" />
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/nouislider/nouislider.min.js' %}"></script>
+    <script src="{% static 'vendor/wnumb/wNumb.js' %}"></script>
+
+    <script src="{% static 'vendor/jquery-validation/dist/additional-methods.min.js' %}"></script>
+    <script src="{% static 'js/main_reg.js' %}"></script>
+
+<script>
+
+</script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

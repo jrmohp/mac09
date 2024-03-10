@@ -1,0 +1,179 @@
+{% extends "asi/base.html" %}
+
+
+
+
+
+
+
+
+
+
+{% load staticfiles %}
+{% block profright %}
+
+
+
+/media/{{tid.teamlogo}}
+{% endblock %}
+
+
+
+{% block p1 %}
+
+    {{p1}}
+
+{% endblock %}
+{% block p1h %}{{p1h}} {% endblock %}
+
+{% block carnum %}{{cnum}}{% endblock %}
+{% block p2 %}
+
+    {{p2}}
+
+{% endblock %}
+{% block p2h %}{{p2h}} {% endblock %}
+
+{% block members %}{{memnum}}{% endblock %}
+{% block per %} {{memper}}{% endblock %}
+
+{% block actlog %}
+
+  {% for act in log %}
+
+  <li class="chat-list">
+                          <div class="chat-body"> <a href="">
+                            <div class="chat-data"> <img class="user-img img-circle" src="{% static 'plugins/assets/img/users/avatar-2.jpg' %}" alt="user" />
+                              <div class="user-data"> <span class="name block capitalize-font">{{act.activitydetails}}</span> <span class="time block truncate txt-grey">{{act.entered}}</span> </div>
+                              <div class="status away"></div>
+                              <div class="clearfix"></div>
+                            </div>
+                            </a> <a href="">
+                            </div>
+                        </li>
+
+
+
+{% endfor %}
+
+
+
+
+
+{% endblock %}
+
+{% block content %}
+
+<title>Dashboard | Mega ATV Championship 2019</title>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+    <div class="panel panel-primary card-view">
+            <div class="panel-heading">
+              <div class="pull-left">
+                <h6 class="panel-title txt-light">panel primary</h6>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="panel-wrapper collapse in">
+              <div class="panel-body">
+                <p>
+
+                  <table class="table table-bordered ">
+    <thead>
+      <tr>
+        <th>TID</th>
+        <th>Team Name</th>
+          <th>Institution</th>
+          <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+     {% for i in payments %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <td>{{ i.teamid }}</td>
+    <td>{{ i.phase }}</td>
+                       <td>{{ i.time }}</td>
+
+
+          {% if i.updated == True %}
+
+
+
+
+                <td><span class="label label-success" onclick="view({{ i.id }})">Updated</span> </td>
+
+
+
+            {% else %}
+                 <td><span class="label label-danger" onclick="updatep({{ i.id }})">Update And Generate Invoice</span> </td>
+
+
+         {% endif %}
+
+  </tr>
+
+
+                    {% endfor %}
+    </tbody>
+  </table>
+
+                  <div class="modal fade bs-example-modal-lg d-none"  id="jrmmodal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;"></div>
+
+
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+<script>
+
+
+
+
+function updatep(id) {
+
+    window.location.assign("/asi/update/?id="+id);
+
+};
+
+function view(id) {
+
+    window.location.assign("/asi/viewinv/?id="+id);
+
+};
+
+s
+
+</script>
+
+
+
+
+
+
+{% endblock %}
+
+

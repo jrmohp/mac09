@@ -1,0 +1,209 @@
+
+{% extends "user/base.html" %}
+
+
+
+
+
+{% block profright %}
+
+
+
+/media/{{tid.teamlogo}}
+{% endblock %}
+
+
+
+{% block p1 %}
+
+    {{p1}}
+
+{% endblock %}
+{% block p1h %}{{p1h}} {% endblock %}
+
+
+
+{% load mathfilters %}
+{% block carnum %}
+
+{% if iselec %}
+E-{{cnum|sub:100}}
+{% else %}
+
+{{cnum}}
+{% endif %}
+{% endblock %}
+
+
+{% block p2 %}
+
+    {{p2}}
+
+{% endblock %}
+{% block p2h %}{{p2h}} {% endblock %}
+
+{% block members %}{{memnum}}{% endblock %}
+{% block per %} {{memper}}{% endblock %}
+
+{% block actlog %}
+
+  {% for act in log %}
+
+  <li class="chat-list">
+                          <div class="chat-body"> <a href="">
+                            <div class="chat-data"> <img class="user-img img-circle" src="{% static 'plugins/assets/img/users/avatar-2.jpg' %}" alt="user" />
+                              <div class="user-data"> <span class="name block capitalize-font">{{act.activitydetails}}</span> <span class="time block truncate txt-grey">{{act.entered}}</span> </div>
+                              <div class="status away"></div>
+                              <div class="clearfix"></div>
+                            </div>
+                            </a> <a href="">
+                            </div>
+                        </li>
+
+
+
+{% endfor %}
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+{% block content %}
+
+
+<title>Edit Team Members | Mega ATV Championship 2019</title>
+<div class="row">
+                    <div class="col-sm-12">
+                        <div class="well-lg card-view p-l-20 p-r-20">
+
+                            <h3 class="box-title m-b-0">Edit Member</h3>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="floating-labels " method="post" action="/editfac/" enctype="multipart/form-data">
+                                         <input type="hidden" value="{{currmem.id}}" name="id">
+                                        <br>
+                                          {% csrf_token %}
+                                        <div class="form-group m-b-40">
+                                            <input type="text" class="form-control" name="mname" value="{{currmem.mname}}" required=""><span class="highlight" "></span> <span class="bar"></span>
+                                            <label for="input1">Name</label>
+                                        </div>
+                                         <div class="form-group m-b-40">
+                                            <input type="email" class="form-control" name="email" value="{{currmem.email}}" required=""><span class="highlight"></span> <span class="bar"></span>
+                                            <label for="input1">Email</label>
+                                        </div>
+                                         <div class="form-group m-b-40">
+                                            <input type="phone" class="form-control" name="phn" required="" value="{{currmem.phn}}"><span class="highlight"></span> <span class="bar"></span>
+                                            <label for="input1">Mobile</label>
+                                        </div>
+                                         <div class="form-group m-b-40">
+                                            <input type="number" class="form-control" name="age" required="" value="{{currmem.age}}"><span class="highlight"></span> <span class="bar"></span>
+                                            <label for="input1">Age</label>
+                                        </div>
+
+
+
+
+                                         <div class="form-group m-b-40">
+                                             <select class="form-control" name="gen" required="" style="height:2.3em" >
+                                                 <option>
+                                                     {{currmem.gender}}
+                                                 </option>
+                                                 <option>
+                                                     Male
+                                                 </option>
+                                                  <option>
+                                                    Female
+                                                 </option>
+
+
+
+                                             </select>
+                                           <span class="highlight"></span> <span class="bar"></span>
+                                            <label for="input1">Gender</label>
+                                        </div>
+                                         <div class="form-group m-b-40">
+                                             <select class="form-control" name="bg" required="" style="height:2.3em">
+                                                 <option>
+                                                     {{currmem.bg}}
+                                                 </option>
+                                                 <option>
+                                                     A +ve
+                                                 </option>
+                                                  <option>
+                                                     A -ve
+                                                 </option>
+                                                  <option>
+                                                     B +ve
+                                                 </option>
+                                                  <option>
+                                                     B -ve
+                                                 </option>
+                                                 <option>
+                                                     O +ve
+                                                 </option>
+                                                  <option>
+                                                     O -ve
+                                                 </option>
+                                                 <option>
+                                                     AB +ve
+                                                 </option>
+                                                  <option>
+                                                     AB -ve
+                                                 </option>
+
+
+                                             </select>
+
+                                            <label for="input1">Blood Group</label>
+                                        </div>
+
+                                         <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                        <div class="form-control" data-trigger="fileinput"> <i class="fa fa-file-text-o fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+                        <span class="input-group-addon fileupload btn btn-primary btn-anim btn-file"><i class="fa fa-upload"></i> <span class="fileinput-new btn-text">Select file</span> <span class="fileinput-exists btn-text">Change</span>
+                        <input type="file" name="mempic" data->
+                        </span> <a href="#" class="input-group-addon btn btn-danger btn-anim fileinput-exists" data-dismiss="fileinput"><i class="fa fa-trash"></i><span class="btn-text"> Trash</span></a> </div>
+ <label class="col-md-12">Photo Of Member<span class="help"></span></label>
+
+
+
+
+                                        <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                        <div class="form-control" data-trigger="fileinput"> <i class="fa fa-file-text-o fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+                        <span class="input-group-addon fileupload btn btn-primary btn-anim btn-file"><i class="fa fa-upload"></i> <span class="fileinput-new btn-text">Select file</span> <span class="fileinput-exists btn-text">Change</span>
+                        <input type="file" name="idproof" >
+                        </span> <a href="#" class="input-group-addon btn btn-danger btn-anim fileinput-exists" data-dismiss="fileinput"><i class="fa fa-trash"></i><span class="btn-text"> Trash</span></a> </div>
+ <label class="col-md-12">ID Proof Of Member<span class="help"></span></label>
+
+                                        <button type="submit" class="btn btn-success">Submit</button>
+
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+<script>
+   $("#success-alert").fadeTo(1000, 500).slideUp(500, function(){
+    $("#success-alert").alert('close');
+});
+/*
+</script>
+
+{% endblock %}

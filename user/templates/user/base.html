@@ -1,0 +1,563 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<meta name="description" content="" />
+<meta name="keywords" content="admin, admin dashboard, admin template" />
+<meta name="author" content="SRGIT" />
+<!-- Favicon -->
+<link rel="shortcut icon" href="{% static 'plugins/assets/img/favicon/favicon.png" />
+<link rel="icon" href="{% static 'plugins/assets/img/favicon/favicon.png" type="image/x-icon" />
+
+
+  <link href="{% static 'plugins/vendors/bower_components/forms-mod-bootstrap/dist/css/forms-mod-bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+<!-- Data table CSS -->
+<link href="{% static 'plugins/vendors/bower_components/datatables/media/css/jquery.dataTables.min.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'plugins/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css' %}" rel="stylesheet" type="text/css" />
+<!-- Custom CSS -->
+<link href="{% static 'plugins/assets/css/default.css' %}" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+<!-- Preloader -->
+<div class="preloader-it">
+  <div class="preloader">
+    <div class="circles-1">
+      <div class="circles-1-center"></div>
+      <div class="circles-1"></div>
+      <div class="circles-1"></div>
+      <div class="circles-1"></div>
+      <div class="circles-1"></div>
+      <div class="circles-1"></div>
+      <div class="circles-1"></div>
+    </div>
+  </div>
+</div>
+<!-- //Preloader -->
+<div class="wrapper light-theme">
+  <!-- Top Header -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="mobile-only-brand pull-left">
+      <div class="nav-header pull-left">
+        <div class="logo-wrap"> <a href="./index.html"> <img class="brand-img" src="{% static 'plugins/assets/img/logo.png' %}" alt="brand" /> <span class="brand-text">[ MAC<strong>GOA</strong> ]</span> </a> </div>
+      </div>
+      <a id="toggle-btn" class="toggle-left-nav-btn inline-block ml-20 pull-left" href="javascript:void(0);"><i class="mdi mdi-format-list-bulleted"></i></a> <a id="toggle_mobile_search" data-toggle="collapse" data-target="#search_form" class="mobile-only-view" href="javascript:void(0);"><i class="mdi mdi-search"></i></a> <a id="toggle_mobile_nav" class="mobile-only-view" href="javascript:void(0);"><i class="mdi mdi-more"></i></a>
+      <form id="search_form" role="search" class="top-nav-search collapse pull-left" />
+        <div class="input-group">
+          <input type="text" name="example-input1-group2" class="form-control" placeholder="Search" />
+          <span class="input-group-btn">
+          <button type="button" class="btn btn-default" data-target="#search_form" data-toggle="collapse" aria-label="Close" aria-expanded="true"><i class="pe-7s-search"></i></button>
+          </span> </div>
+      </form>
+    </div>
+    <div id="mobile_right_sidebar" class="mobile-right-sidebar pull-right">
+      <ul class="nav navbar-right top-nav pull-right">
+        <li> <a id="open_right_sidebar" href="#"><i class="pe-7s-edit top-nav-icon"></i></a> </li>
+
+        <li class="dropdown alert-drp"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="pe-7s-alarm top-nav-icon"></i><span class="top-nav-icon-badge btn-sonar">1</span></a>
+          <ul class="dropdown-menu alert-dropdown" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+            <li>
+              <div class="notification-box-head-wrap"> <span class="notification-box-head pull-left inline-block">notifications</span> <a class="txt-danger pull-right clear-notifications inline-block" href="javascript:void(0)"> clear all </a>
+                <div class="clearfix"></div>
+                <hr class="light-grey-hr ma-0" />
+              </div>
+            </li>
+            <li>
+              <div class="streamline message-nicescroll-bar">
+
+                   <hr class="light-grey-hr ma-0" />
+                <div class="sl-item"> <a href="javascript:void(0)">
+                  <div class="icon bg-blue"> <i class="mdi mdi-information"></i> </div>
+<!--                  <div class="sl-content"> <span class="inline-block capitalize-font  pull-left truncate head-notifications"></span> Important Remainder Regarding Transponder</br> Please Register your Transponder Before Coming to Event Site</br> Management will be not responsible for the same at the event site <span class="inline-block font-11  pull-right notifications-time"></span>
+                    <div class="clearfix"></div>
+                     </div>
+			</a> </div> -->
+
+              {% if pay2 %}
+<!--                <hr class="light-grey-hr ma-0" />-->
+<!--                <div class="sl-item"> <a href="javascript:void(0)">-->
+<!--                  <div class="icon bg-blue"> <i class="mdi mdi-information"></i> </div>-->
+<!--                  <div class="sl-content"> <span class="inline-block capitalize-font  pull-left truncate head-notifications"></span> Important Event Information<br> Rules,Format & TI Sheet  <span class="inline-block font-11  pull-right notifications-time"></span>-->
+<!--                    <div class="clearfix"></div>-->
+<!--                      <p class="truncate"> <a target="_blank" href="https://atvchampionship.com/wp-content/uploads/2020/03/Event-Rules-Format.zip">Download Files</a></p>-->
+<!--                  </div>-->
+<!--                  </a> </div>-->
+                  {% endif %}
+
+                {% if pay1 %}
+<!--                <hr class="light-grey-hr ma-0" />-->
+<!--                <div class="sl-item"> <a href="javascript:void(0)">-->
+<!--                  <div class="icon bg-blue"> <i class="mdi mdi-information"></i> </div>-->
+<!--                  <div class="sl-content"> <span class="inline-block capitalize-font  pull-left truncate head-notifications"></span> Declarations & Other Documents <span class="inline-block font-11  pull-right notifications-time"></span>-->
+<!--                    <div class="clearfix"></div>-->
+<!--                      <p class="truncate"> <a target="_blank" href="https://atvchampionship.com/wp-content/uploads/2021/04/Annexures.zip"> Download Information File </a></p>-->
+<!--                  </div>-->
+<!--                  </a> </div>-->
+
+
+                 <hr class="light-grey-hr ma-0" />
+                <div class="sl-item"> <a href="javascript:void(0)">
+                  <div class="icon bg-blue"> <i class="mdi mdi-information"></i> </div>
+                  <div class="sl-content"> <span class="inline-block capitalize-font  pull-left truncate head-notifications"></span> Important Contacts <span class="inline-block font-11  pull-right notifications-time"></span>
+                    <div class="clearfix"></div>
+                      <p class="truncate"> <a target="_blank" href=""> Mr. Deepak Sharma, Briggs and Stratton.
+<br>Contact details:+91-94140 55633  <br><br><br> Mr. Santhosh,Timing Technologies India (MY laps)<br>
+Contact details:+91-891972 3825</a></p>
+                  </div>
+                  </a> </div>
+                  {% endif %}
+
+
+
+                 {% if pay1 %}
+                <hr class="light-grey-hr ma-0" />
+                <div class="sl-item"> <a href="javascript:void(0)">
+                  <div class="icon bg-blue"> <i class="mdi mdi-information"></i> </div>
+                  <div class="sl-content"> <span class="inline-block capitalize-font  pull-left truncate head-notifications"></span>  Event Schedule <span class="inline-block font-11  pull-right notifications-time"></span>
+                    <div class="clearfix"></div>
+                      <p class="truncate"> <a target="_blank" href="https://atvchampionship.com/wp-content/uploads/2020/03/EVENT_SCHEDULE_NEW_MAC_2020.pdf`"> Download Information File </a></p>
+                  </div>
+                  </a> </div>
+                  {% endif %}
+
+
+<!--
+                {% if pay1 %}
+                <hr class="light-grey-hr ma-0" />
+                <div class="sl-item"> <a href="javascript:void(0)">
+                  <div class="icon bg-blue"> <i class="mdi mdi-information"></i> </div>
+                  <div class="sl-content"> <span class="inline-block capitalize-font  pull-left truncate head-notifications"></span>  Event Format And Rules <span class="inline-block font-11  pull-right notifications-time"></span>
+                    <div class="clearfix"></div>
+                      <p class="truncate"> <a target="_blank" href="http://atvchampionship.com/wp-content/uploads/2019/02/Event-Format-and-Rules-SEASON-4_Updated.pdf"> Download Information File </a></p>
+                  </div>
+                  </a> </div>
+                  {% endif %}
+
+-->
+<!--
+                {% if pay1 %}
+                <hr class="light-grey-hr ma-0" />
+                <div class="sl-item"> <a href="javascript:void(0)">
+                  <div class="icon bg-blue"> <i class="mdi mdi-phone"></i> </div>
+                  <div class="sl-content"> <span class="inline-block capitalize-font  pull-left truncate head-notifications"></span> IMPORTANT CONTACTS OF VENDORS/PARTNERS <span class="inline-block font-11  pull-right notifications-time"></span>
+                    <div class="clearfix"></div>
+                    <p class="truncate">General : 7978555567 (Mr. Jyoti Ranjan)<br>
+                        Logistics : +91-9787565727 (Mr. Kamalnathann)<br>
+Engine : +91-9414055633 (Mr. Deepak)<br>
+Transponder : +91-8919723825 (Mr. Santosh)<br>
+Accomodation : +91-9507905834 (Mr.Jagjit)</p>
+                  </div>
+                  </a> </div>
+                  {% endif %}
+-->
+
+   <!--               {% if pay1 %}
+                <hr class="light-grey-hr ma-0" />
+                <div class="sl-item"> <a href="javascript:void(0)">
+                  <div class="icon bg-blue"> <i class="mdi mdi-information"></i> </div>
+                  <div class="sl-content"> <span class="inline-block capitalize-font  pull-left truncate head-notifications"></span> Important Guidelines And Contacts <span class="inline-block font-11  pull-right notifications-time"></span>
+                    <div class="clearfix"></div>
+                      <p class="truncate"> <a target="_blank" href="http://atvchampionship.com/wp-content/uploads/2019/01/IMPORTANT-CONTACTS-OF-OUR-ASSOCIATES-AND-SUPPLIERS-FOR-PARTICIPANTS-1.pdf"> Download Information File </a></p>
+                  </div>
+                  </a> </div>
+                  {% endif %} -->
+
+                    {% if pay2 %}
+                <hr class="light-grey-hr ma-0" />
+                <div class="sl-item"> <a href="javascript:void(0)">
+                  <div class="icon bg-blue"> <i class="mdi mdi-coin"></i> </div>
+                  <div class="sl-content"> <span class="inline-block capitalize-font  pull-left truncate head-notifications"></span> Payment Notification  <span class="inline-block font-11  pull-right notifications-time"></span>
+                    <div class="clearfix"></div>
+                    <p class="truncate"> Payment Received For Phase 2</p>
+                  </div>
+                  </a> </div>
+                  {% endif %}
+
+                  {% if pay1 %}
+                <hr class="light-grey-hr ma-0" />
+                <div class="sl-item"> <a href="javascript:void(0)">
+                  <div class="icon bg-blue"> <i class="mdi mdi-map"></i> </div>
+                  <div class="sl-content"> <span class="inline-block capitalize-font  pull-left truncate head-notifications"></span> Venue Details <span class="inline-block font-11  pull-right notifications-time"></span>
+                    <div class="clearfix"></div>
+                      <p class="truncate"> Querim Beach (Keri Beach),Pernem, Goa <br> <a target="_blank" href="https://www.google.com/maps/place/15%C2%B042'06.8%22N+73%C2%B041'57.9%22E/@15.701877,73.699412,14z/data=!4m5!3m4!1s0x0:0x0!8m2!3d15.701877!4d73.6994123?hl=en">View In Map</a></p>
+                  </div>
+                  </a> </div>
+                  {% endif %}
+
+
+                    <hr class="light-grey-hr ma-0" />
+<!--                <div class="sl-item"> <a href="javascript:void(0)">-->
+<!--                  <div class="icon bg-blue"> <i class="mdi mdi-calendar"></i> </div>-->
+<!--                  <div class="sl-content"> <span class="inline-block capitalize-font  pull-left truncate head-notifications"></span> Event Dates <span class="inline-block font-11  pull-right notifications-time"></span>-->
+<!--                    <div class="clearfix"></div>-->
+<!--                      <p class="truncate"> The Mega ATV Championship 2021 has <br>been scheduled to be held from <br><b>10th-13th April 2021</b> in North Goa. </p>-->
+<!--                  </div>-->
+<!--                  </a> </div>-->
+
+
+                  {% if pay1 %}
+                <hr class="light-grey-hr ma-0" />
+                <div class="sl-item"> <a href="javascript:void(0)">
+                  <div class="icon bg-blue"> <i class="mdi mdi-coin"></i> </div>
+                  <div class="sl-content"> <span class="inline-block capitalize-font  pull-left truncate head-notifications"></span> Payment Notification <span class="inline-block font-11  pull-right notifications-time"></span>
+                    <div class="clearfix"></div>
+                    <p class="truncate"> Payment Received For Phase 1</p>
+                  </div>
+                  </a> </div>
+                  {% endif %}
+
+                 <hr class="light-grey-hr ma-0" />
+<!--                <div class="sl-item"> <a href="javascript:void(0)">-->
+<!--                  <div class="icon bg-blue"> <i class="mdi mdi-calendar"></i> </div>-->
+<!--                  <div class="sl-content"> <span class="inline-block capitalize-font  pull-left truncate head-notifications"></span> Payment Deadline <span class="inline-block font-11  pull-right notifications-time"></span>-->
+<!--                    <div class="clearfix"></div>-->
+<!--                      <p class="truncate"> The Last Date For Second Phase <br>Payment is <br><b>28th Feb 2021</b>  </p>-->
+<!--                  </div>-->
+<!--                  </a> </div>-->
+
+
+              </div>
+            </li>
+            <li>
+              <div class="notification-box-bottom-wrap">
+                <hr class="light-grey-hr ma-0" />
+                <a class="block text-center read-all" href="javascript:void(0)"> read all </a>
+                <div class="clearfix"></div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown auth-drp"> <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="{% block profright %} {% endblock %}" alt="user_auth" class="user-auth-img img-circle" /><span class="user-online-status"></span></a>
+          <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+            <li> <a href="./profile.html"><i class="mdi mdi-account"></i><span>Profile</span></a> </li>
+
+            <li class="divider"></li>
+            <li> <a href="/logout/"><i class="mdi mdi-power"></i><span>Log Out</span></a> </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- /Top Menu Items -->
+
+
+  <!-- Left Sidebar Menu -->
+
+
+
+  <div class="fixed-sidebar-left">
+    <ul class="nav navbar-nav side-nav nicescroll-bar">
+      <li class="navigation-header"> <span>Main</span> <i class="mdi mdi-more"></i> </li>
+      <li> <a href="/" data-toggle="collapse" data-target="#admin-dash">
+        <div class="pull-left"><i class="mdi mdi-apps mr-20"></i><span class="right-nav-text">Dashboard</span></div>
+        <div class="pull-right"><i class="mdi mdi-chevron-right"></i></div>
+        <div class="clearfix"></div>
+        </a>
+
+      </li>
+
+      <li>
+        <hr class="light-grey-hr mb-10" />
+      </li>
+      <li class="navigation-header"> <span>component</span> <i class="mdi mdi-more"></i> </li>
+      <li> <a href="javascript:void(0);" data-toggle="collapse" data-target="#ui_element">
+        <div class="pull-left"><i class="mdi mdi-account-multiple mr-20"></i><span class="right-nav-text">Team</span></div>
+        <div class="pull-right"><i class="mdi mdi-chevron-down"></i></div>
+        <div class="clearfix"></div>
+        </a>
+        <ul id="ui_element" class="collapse collapse-level-1">
+          <li><a href="/addmember/"><i class="mdi mdi-account-multiple-plus mdi-18px "></i> <span class="hide-menu">Add Team Member</span></a></li>
+                        <li><a href="/viewteam/"><i class="mdi mdi-account-box-outline mdi-18px fa-fw"></i> <span class="hide-menu">View Team</span></a></li>
+
+        </ul>
+      </li>
+      <li> <a href="javascript:void(0);" data-toggle="collapse" data-target="#icon_list">
+        <div class="pull-left"><i class="mdi mdi-cube-outline mr-20"></i><span class="right-nav-text">Faculty</span></div>
+        <div class="pull-right"><i class="mdi mdi-chevron-down"></i></div>
+        <div class="clearfix"></div>
+        </a>
+        <ul id="icon_list" class="collapse collapse-level-1">
+          <li><a href="/addfaculty/"><i class="mdi mdi-account-multiple-plus mdi-18px fa-fw"></i> <span class="hide-menu">Add Faculty </span></a></li>
+          <li><a href="/viewfaculty/"><i class="mdi mdi-account-box-outline mdi-18px fa-fw"></i> <span class="hide-menu">View Faculty</span></a></li>  <li><a href="/viewfaculty/"><i class="mdi mdi-account-box-outline mdi-18px fa-fw"></i> <span class="hide-menu">View Faculty</span></a></li>
+
+        </ul>
+      </li>
+         <li> <a href="/lor/" target="_blank" data-toggle="collapse" data-target="#invoice_list">
+        <div class="pull-left"><i class="mdi mdi-file-document mr-20"></i><span class="right-nav-text">Print LOR</span></div>
+        <div class="pull-right"><i class="mdi"></i></div>
+        <div class="clearfix"></div>
+        </a>
+      </li>
+         <li> <a href="/carnumber/" target="_blank" data-toggle="collapse" data-target="#invoice_list">
+        <div class="pull-left"><i class="mdi mdi-car mr-20"></i><span class="right-nav-text">Car Number</span></div>
+        <div class="pull-right"><i class="mdi"></i></div>
+        <div class="clearfix"></div>
+        </a>
+      </li>
+
+
+      <!-- Payment -->
+      <li>
+        <hr class="light-grey-hr mb-10" />
+      </li>
+
+      <li class="navigation-header"> <span>Payment</span> <i class="mdi mdi-more"></i> </li>
+      <li> <a href="/paymentinfo/" data-toggle="collapse" data-target="#invoice_list">
+        <div class="pull-left"><i class="mdi mdi-file-document mr-20"></i><span class="right-nav-text">Pay The Fees</span></div>
+        <div class="pull-right"><i class="mdi mdi-chevron-down"></i></div>
+        <div class="clearfix"></div>
+        </a>
+      </li>
+       <li> <a href="/payment/" data-toggle="collapse" data-target="#invoice_list">
+        <div class="pull-left"><i class="mdi mdi-file-document mr-20"></i><span class="right-nav-text">Submit Payment Proof</span></div>
+        <div class="pull-right"><i class="mdi"></i></div>
+        <div class="clearfix"></div>
+        </a>
+      </li>
+<!--       <li> <a href="/invoices/" data-toggle="collapse" data-target="#invoice_list">
+        <div class="pull-left"><i class="mdi mdi-file-document mr-20"></i><span class="right-nav-text">Invoice</span></div>
+        <div class="pull-right"><i class="mdi mdi-chevron-down"></i></div>
+        <div class="clearfix"></div>
+        </a>
+      </li>-->
+      <li>
+        <hr class="light-grey-hr mb-10" />
+      </li>
+      <!-- ecommerce -->
+
+    </ul>
+  </div>
+
+  <!-- /Left Sidebar Menu -->
+
+  <!-- Right Sidebar Menu -->
+  <div class="fixed-sidebar-right">
+    <ul class="right-sidebar">
+      <li>
+        <div class="tab-struct user-tabs">
+          <ul role="tablist" class="nav nav-tabs" id="right_sidebar_tab">
+            <li class="active" role="presentation"><a aria-expanded="true" data-toggle="tab" role="tab" id="chat_tab_btn" href="#chat_tab"><i class="fa fa-trello"></i></a></li>
+            <li role="presentation" class=""><a data-toggle="tab" id="messages_tab_btn" role="tab" href="#messages_tab" aria-expanded="false"><i class="fa fa-file"></i></a></li>
+          </ul>
+          <div class="tab-content" id="right_sidebar_content">
+            <div id="chat_tab" class="tab-pane fade active in" role="tabpanel">
+              <div class="chat-cmplt-wrap">
+                <div class="chat-box-wrap">
+                  <div class="add-friend"> <span class="inline-block txt-dark">Activity</span> <a href="javascript:void(0)" class="inline-block text-right txt-grey"><i class="mdi mdi-plus"></i></a> <a href="javascript:void(0)" class="inline-block txt-grey"> <i class="mdi mdi-more"></i> </a>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div id="chat_list_scroll">
+                    <div class="nicescroll-bar">
+                      <ul class="chat-list-wrap">
+
+          {% block actlog %}
+
+
+                          {% endblock %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="recent-chat-box-wrap">
+                  <div class="recent-chat-wrap">
+                    <div class="panel-heading ma-0">
+                      <div class="goto-back"> <a id="goto_back" href="javascript:void(0)" class="inline-block txt-grey"> <i class="mdi mdi-chevron-left"></i> </a> <span class="inline-block txt-dark">Max</span> <a href="javascript:void(0)" class="inline-block text-right txt-grey"><i class="mdi mdi-more"></i></a>
+                        <div class="clearfix"></div>
+                      </div>
+                    </div>
+                    <div class="panel-wrapper collapse in">
+                      <div class="panel-body pa-0">
+                        <div class="chat-content">
+                        </div>
+                        <div class="input-group">
+                          <input type="text" id="input_msg_send" name="send-msg" class="input-msg-send form-control" placeholder="Type something" />
+                          <div class="input-group-btn emojis">
+                            <div class="dropup">
+                              <button type="button" class="btn  btn-default  dropdown-toggle" data-toggle="dropdown"><i class="mdi mdi-mood"></i></button>
+                              <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="javascript:void(0)">Action</a></li>
+                                <li><a href="javascript:void(0)">Another action</a></li>
+                                <li class="divider"></li>
+                                <li><a href="javascript:void(0)">Separated link</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="input-group-btn attachment">
+                            <div class="fileupload btn  btn-default"><i class="mdi mdi-attachment-alt"></i>
+                              <input type="file" class="upload" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="messages_tab" class="tab-pane fade" role="tabpanel">
+              <div class="message-box-wrap">
+                <div class="add-friend"> <span class="inline-block txt-dark">Downloadable Files</span> <a href="javascript:void(0)" class="inline-block text-right txt-grey"><i class="mdi mdi-search"></i></a> <a href="javascript:void(0)" class="inline-block txt-grey"> <i class="mdi mdi-more"></i> </a>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="set-height-wrap">
+                  <div class="streamline message-box nicescroll-bar"> <a href="javascript:void(0)">
+
+                      <a target="_blank" href="http://atvchampionship.com/wp-content/uploads/2019/03/Inspection-Sheet-Season4.xlsx"> <b> Technical Inspection Sheet </b></a>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- /Right Sidebar Menu -->
+  <!-- Main Content -->
+  <div class="page-wrapper">
+    <div class="container-fluid min-ht-600">
+<div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="panel panel-default card-view pa-0">
+            <div class="panel-wrapper collapse in">
+              <div class="panel-body pa-0">
+                <div class="sm-data-box">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-xs-6 pl-20 pr-0 data-wrap-left"> <span class="txt-dark block counter"><span class="">{% block p1 %} {% endblock %}</span></span> <span class="weight-500 uppercase-font block">First Phase</span> </div>
+                      <div class="col-xs-6 text-center  pl-0 pr-0 pt-30 data-wrap-right">
+                      <button class="{% block p1h %} {% endblock %}"><i class="fa fa-inr"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="panel panel-default card-view pa-0">
+            <div class="panel-wrapper collapse in">
+              <div class="panel-body pa-0">
+                <div class="sm-data-box">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-xs-6 pl-20 pr-0 data-wrap-left"> <span class="txt-dark block counter"><span class="">{% block p2 %} {% endblock %}</span></span> <span class="weight-500 uppercase-font block">Second Phase</span> </div>
+                      <div class="col-xs-6 text-center  pl-0 pr-0  pt-30 data-wrap-right">
+                       <button class="{% block p2h %} {% endblock %}"><i class="fa fa-inr"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="panel panel-default card-view pa-0">
+            <div class="panel-wrapper collapse in">
+              <div class="panel-body pa-0">
+                <div class="sm-data-box">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-xs-6 pl-20 pr-0 data-wrap-left"> <span class="txt-dark block counter"><span class="counter-anim">{% block members %}{% endblock %}</span></span> <span class="weight-500 uppercase-font block" >Members </span> <span style="padding: 7%"></span></div>
+                      <div class="col-xs-6 text-center  pl-0 pr-0 pt-20 data-wrap-right">
+                        <div class="progress progress-lg">
+                <div class="progress-bar progress-bar-info active progress-bar-striped" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" role="progressbar" style='width:{% block per %} {% endblock %}%'> <span class="sr-only"></span> </div>
+              </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="panel panel-default card-view pa-0">
+            <div class="panel-wrapper collapse in">
+              <div class="panel-body pa-0">
+                <div class="sm-data-box">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-xs-6 pl-20 pr-0 data-wrap-left"> <span class="txt-dark block counter"><span class="">{% block carnum %}{% endblock %} </span></span> <span class="weight-500 uppercase-font block" style="padding: 7%">Car Number </span> </div>
+                      <div class="col-xs-6 text-center  pl-0 pr-0 pt-25  data-wrap-right">
+                        <div class="flot-container h-55">
+                          <div id="" class=""><i class="fa fa-car" style="font-size: 4em;color: orange;" aria-hidden="true"></i> </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+</div>
+
+    {% block content %}
+
+
+
+      {% endblock %}
+
+      <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+    <!-- Row-->
+    <!-- Footer -->
+    <footer class="footer container-fluid pt-10 pb-10  pl-30 pr-30">
+      <div class="row">
+        <div class="col-sm-12 ">
+          <div class="pull-left text-dark pt-5 small">Copyright @<script>document.write(new Date().getFullYear());</script> Autosports India Pvt. Ltd. All Rights Reserved</div>
+           <div class="clearfix"></div>
+        </div>
+      </div>
+    </footer>
+    <!-- /Footer -->
+  </div>
+</div>
+<!-- /Main Content -->
+<!-- /#wrapper -->
+<!-- JavaScript -->
+<!-- jQuery -->
+<script src="{% static 'plugins/vendors/bower_components/jquery/dist/jquery.min.js' %}"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="{% static 'plugins/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+<!-- Data table JavaScript -->
+<script src="{% static 'plugins/vendors/bower_components/datatables/media/js/jquery.dataTables.min.js' %}"></script>
+<!-- Slimscroll JavaScript -->
+<script src="{% static 'plugins/assets/js/jquery.slimscroll.js' %}"></script>
+<!-- Owl JavaScript -->
+<script src="{% static 'plugins/vendors/bower_components/owl.carousel/dist/owl.carousel.min.js' %}"></script>
+<script src="{% static 'plugins/vendors/bower_components/owl.carousel/dist/owl.carousel.min.js' %}"></script>
+<!-- Progressbar Animation JavaScript -->
+<script src="{% static 'plugins/vendors/bower_components/waypoints/lib/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'plugins/vendors/bower_components/jquery.counterup/jquery.counterup.min.js' %}"></script>
+<!-- Fancy Dropdown JS -->
+<script src="{% static 'plugins/assets/js/dropdown-bootstrap-extended.js' %}"></script>
+<!-- FlotChart JavaScript -->
+<script src="{% static 'plugins/vendors/bower_components/flot/jquery.flot.js' %}"></script>
+<script src="{% static 'plugins/assets/js/flot-data-dashboard.js' %}"></script>
+<script src="{% static 'plugins/vendors/bower_components/skycons/skycons.js' %}"></script>
+<!-- Sparkline JavaScript -->
+<script src="{% static 'plugins/vendors/jquery.sparkline/dist/jquery.sparkline.min.js' %}"></script>
+<!-- Switchery JavaScript -->
+<script src="{% static 'plugins/vendors/bower_components/switchery/dist/switchery.min.js' %}"></script>
+<!-- EChartJS JavaScript -->
+<script src="{% static 'plugins/vendors/bower_components/echarts/dist/echarts-en.min.js' %}"></script>
+<!-- Toast JavaScript -->
+<script src="{% static 'plugins/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js' %}"></script>
+<!-- Init JavaScript -->
+<script src="{% static 'plugins/assets/js/init.js' %}"></script>
+<script src="{% static 'plugins/assets/js/dashboard.init.js' %}"></script>
+
+<script src="{% static 'plugins/vendors/bower_components/forms-mod-bootstrap/dist/js/forms-mod-bootstrap.min.js' %}"></script>
+</body>
+</html>

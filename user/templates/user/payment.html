@@ -1,0 +1,336 @@
+{% extends "user/base.html" %}
+
+{% load static %}
+
+
+{% block profright %}
+
+
+
+/media/{{tid.teamlogo}}
+{% endblock %}
+
+
+
+{% block p1 %}
+
+    {{p1}}
+
+{% endblock %}
+{% block p1h %}{{p1h}} {% endblock %}
+
+{% load mathfilters %}
+{% block carnum %}
+
+{% if iselec %}
+E-{{cnum|sub:100}}
+{% else %}
+
+{{cnum}}
+{% endif %}
+{% endblock %}
+
+
+{% block p2 %}
+
+    {{p2}}
+
+{% endblock %}
+{% block p2h %}{{p2h}} {% endblock %}
+
+{% block members %}{{memnum}}{% endblock %}
+{% block per %} {{memper}}{% endblock %}
+
+{% block actlog %}
+
+  {% for act in log %}
+
+  <li class="chat-list">
+                          <div class="chat-body"> <a href="">
+                            <div class="chat-data"> <img class="user-img img-circle" src="{% static 'plugins/assets/img/users/avatar-2.jpg' %}" alt="user" />
+                              <div class="user-data"> <span class="name block capitalize-font">{{act.activitydetails}}</span> <span class="time block truncate txt-grey">{{act.entered}}</span> </div>
+                              <div class="status away"></div>
+                              <div class="clearfix"></div>
+                            </div>
+                            </a> <a href="">
+                            </div>
+                        </li>
+
+
+
+{% endfor %}
+
+
+
+
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+
+
+
+{% if not tid.payment1 or not tid.payment2 %}
+<title>Payment | Mega ATV Championship 2019</title>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+      {% if paym1 %}
+
+ <div class="alert alert-danger alert-dismissable">
+                                                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                        You have already Submitted Request For Phase 1 on {{paym1time}}
+                                                   </div>
+
+  {% endif %}
+
+      {% if paym2 %}
+
+ <div class="alert alert-danger alert-dismissable">
+                                                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                        You have already Submitted Request For Phase 2 on {{paym2time}}
+                                                   </div>
+
+  {% endif %}
+
+
+
+
+
+
+
+
+
+
+ {% if uploaded_file_url == "Request Submitted" %}
+
+ <div class="alert alert-success alert-dismissable">
+                                                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                       {{ uploaded_file_url }}
+                                                   </div>
+
+  {% endif %}
+
+
+{% if uploaded_file_url == "Request Failed" %}
+
+ <div class="alert alert-danger alert-dismissable">
+                                                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                       {{ uploaded_file_url }}
+                                                   </div>
+
+  {% endif %}
+
+
+
+    {% if gstsave == "GST Details Submitted" %}
+
+ <div class="alert alert-success alert-dismissable">
+                                                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                       {{ gstsave }}
+                                                   </div>
+
+  {% endif %}
+
+
+{% if gstsave == "GST Details Submision Failed" %}
+
+ <div class="alert alert-danger alert-dismissable">
+                                                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                       {{ gstsave }}
+                                                   </div>
+
+  {% endif %}
+
+
+
+
+
+
+
+      {% if  paym1 and paym2 %}
+
+      <div class="row">
+                    <div class="col-md-12">
+                        <div class="well-lg card-view">
+<br>
+                                            <br>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-12">
+                                     <img src="{% static 'tick.gif' %}" height="100%">
+                                </div>
+
+                                <div class="col-lg-8 col-md-8 col-sm-12">
+                                    <br>
+                                     <center><h2>You Have Already Submitted The Data</h2></center>
+                                </div>
+
+
+
+
+                            </div>
+
+<br>
+                                            <br>
+
+                    </div>
+                </div>
+
+          {% endif %}
+
+
+
+          {% if  not paym1 or not paym2 %}
+  <div class="well-lg card-view">
+
+
+
+
+
+
+    <div class="col-sm-12">
+
+
+
+
+
+
+        <div class="alert alert-danger alert-dismissable">
+                                                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                       The Details Cannot Be Altered Once Submitted, Please Fill Carefully.
+                                                   </div>
+
+
+
+<label class="col-md-12">Phase <span class="help"></span></label>
+                                        <select class="form-control" name="phase">
+                                            {% if not tid.payment1 and  not paym1 %}
+
+
+                                                    <option>Phase 1</option>
+
+
+                                             {% endif %}
+
+                                            {% if not tid.payment2 and not paym2 %}
+
+
+                                            <option>Phase 2</option>
+
+                                            {% endif %}
+                                        </select>
+                                    <br>
+      <br>
+
+    <label class="col-md-12">Screenshot Of Payment Proof <span class="help"></span></label>
+      <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+     <div class="form-control" data-trigger="fileinput"> <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div> <span class="input-group-addon btn btn-default btn-file"> <span class="fileinput-new">Select file</span> <span class="fileinput-exists">Change</span>
+      <input type="hidden"><input type="file" name="myfile"> </span> <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div>
+        </div>
+<!--
+
+         <label class="col-md-12">Legal Name (Using Which Bill Will Be Generated) <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control"  name="lname"> </div>
+
+
+        <label class="col-md-12">Full Address <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control"  name="addr" maxlength="50" > </div>
+
+         <label class="col-md-12">State <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control"  name="state" > </div>
+
+      <label class="col-md-12">GSTIN <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control"  name="gstin" minlength="15" maxlength="15" id="gstin" onchange="statecode()"> </div>
+
+      <label class="col-md-12">State Code <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control"  name="scode" minlength="2" maxlength="2" id="scode"> </div>
+
+
+
+      <br>
+      <br>
+    <br>
+-->
+    <center>
+        <button class="btn btn-success btn-anim btn-lg" type="submit"><i class="mdi mdi-send" ></i><span class="btn-text">submit</span></button>
+    </center>
+
+  </div>
+  </form>
+{% endif %}
+ {% endif %}
+
+
+{% if  tid.payment1 and tid.payment2 %}
+
+
+<div class="row">
+                    <div class="col-md-12">
+                        <div class="well-lg card-view">
+
+<br>
+                                            <br>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-12">
+                                     <img src="{% static 'tick.gif' %}" height="100%">
+                                </div>
+
+                                <div class="col-lg-8 col-md-8 col-sm-12">
+                                    <br>
+                                     <center><h2>Peace Here! <br>You Have Already Paid The Full Amount.</h2></center>
+                                </div>
+
+
+                                            <br>
+                                            <br>
+
+                            </div>
+
+
+
+                    </div>
+                </div>
+
+
+
+
+{% endif %}
+
+<script>
+    function statecode() {
+
+
+
+        gst = $("#gstin").val();
+        scode = gst.charAt(0)+gst.charAt(1);
+
+
+        $("#scode").val(scode);
+
+
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,296 @@
+{% extends "user/base.html" %}
+
+{% load static %}
+{% block profright %}
+
+
+
+/media/{{tid.teamlogo}}
+{% endblock %}
+
+
+
+{% block p1 %}
+
+    {{p1}}
+
+{% endblock %}
+{% block p1h %}{{p1h}} {% endblock %}
+
+
+{% load mathfilters %}
+{% block carnum %}
+
+{% if iselec %}
+E-{{cnum|sub:100}}
+{% else %}
+
+{{cnum}}
+{% endif %}
+{% endblock %}
+
+
+{% block p2 %}
+
+    {{p2}}
+
+{% endblock %}
+{% block p2h %}{{p2h}} {% endblock %}
+
+{% block members %}{{memnum}}{% endblock %}
+{% block per %} {{memper}}{% endblock %}
+
+{% block actlog %}
+
+  {% for act in log %}
+
+  <li class="chat-list">
+                          <div class="chat-body"> <a href="">
+                            <div class="chat-data"> <img class="user-img img-circle" src="{% static 'plugins/assets/img/users/avatar-2.jpg' %}" alt="user" />
+                              <div class="user-data"> <span class="name block capitalize-font">{{act.activitydetails}}</span> <span class="time block truncate txt-grey">{{act.entered}}</span> </div>
+                              <div class="status away"></div>
+                              <div class="clearfix"></div>
+                            </div>
+                            </a> <a href="">
+                            </div>
+                        </li>
+
+
+
+{% endfor %}
+
+
+
+
+
+{% endblock %}
+
+{% block content %}
+
+
+<link href="{% static 'plugins/vendors/bower_components/forms-mod-bootstrap/dist/css/forms-mod-bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+
+
+<title>Add Members | Mega ATV Championship 2019</title>
+<div class="row">
+                    <div class="col-sm-12">
+                        <div class="well-lg card-view p-l-20 p-r-20">
+                           {% if addmsg == "Maximum 30 Members Are Allowed" %}
+
+
+
+
+
+
+
+
+
+                            <div class="row">
+                    <div class="col-md-12">
+
+
+<br>
+                                            <br>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-12">
+                                     <img src="{% static 'limit.png' %}" height="50%">
+                                </div>
+                                <div class="col-lg-1 col-md-1 col-sm-12"></div>
+                                <div class="col-lg-7 col-md-7 col-sm-12">
+                                    <br>
+                                     <center><h2>Oops! <br>You Have Already Added 30 Members To Your Team.</h2></center>
+                                </div>
+
+
+                                            <br>
+                                            <br>
+
+                            </div>
+
+
+
+                    </div>
+                </div>
+
+
+  {% endif %}
+
+                            {% if addmsg == "Member Added Succesfully" %}
+
+ <div class="alert alert-success alert-dismissable">
+                                                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                       {{ addmsg }}
+                                                   </div>
+
+  {% endif %}
+
+
+                            {% if addmsg == "Member Adding Failed" %}
+
+ <div class="alert alert-success alert-dismissable">
+                                                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                       {{ addmsg }}
+                                                   </div>
+
+  {% endif %}
+
+
+
+                            {% if addmsg == "File More Than 2 MB" %}
+
+ <div class="alert alert-success alert-dismissable">
+                                                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                       {{ addmsg }}
+                                                   </div>
+
+  {% endif %}
+
+
+                            {% if addmsg != "Maximum 30 Members Are Allowed" %}
+                            <h3 class="box-title m-b-0">Add Member</h3>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="floating-labels " method="post" enctype="multipart/form-data">
+                                        <br>
+                                          {% csrf_token %}
+
+
+                                        <div class="form-group m-b-40">
+                                            <input type="text" class="form-control" name="mname" required=""><span class="highlight"></span> <span class="bar"></span>
+                                            <label for="input1">Name</label>
+                                        </div>
+                                         <div class="form-group m-b-40">
+                                            <input type="email" class="form-control" name="email" required=""><span class="highlight"></span> <span class="bar"></span>
+                                            <label for="input1">Email</label>
+                                        </div>
+                                         <div class="form-group m-b-40">
+                                            <input type="phone" class="form-control" name="phn" required=""><span class="highlight"></span> <span class="bar"></span>
+                                            <label for="input1">Mobile</label>
+                                        </div>
+                                         <div class="form-group m-b-40">
+                                            <input type="number" class="form-control" name="age" required="" maxlength="2" minlength="2"><span class="highlight"></span> <span class="bar"></span>
+                                            <label for="input1">Age</label>
+                                        </div>
+                                         <div class="form-group m-b-40">
+                                            <input type="text" class="form-control" name="role" required=""><span class="highlight"></span> <span class="bar"></span>
+                                            <label for="input1">Role</label>
+                                        </div>
+
+
+                                         <div class="form-group m-b-40">
+                                             <select class="form-control" name="gen" required="" style="height:2.3em" >
+                                                 <option>
+                                                     Male
+                                                 </option>
+                                                  <option>
+                                                    Female
+                                                 </option>
+
+
+
+                                             </select>
+                                           <span class="highlight"></span> <span class="bar"></span>
+                                            <label for="input1">Gender</label>
+                                        </div>
+
+                                        <div class="form-group m-b-40">
+                                             <select class="form-control" name="year" required="" style="height:2.3em" >
+
+                                                 <option>
+                                                    2022
+                                                 </option>
+						<option>
+
+						</option>
+						<option>
+						2024
+						</option>
+						<option>
+						2025
+						</option>
+                                                 <option>
+						2026
+						</option>
+
+                                             </select>
+                                           <span class="highlight"></span> <span class="bar"></span>
+                                            <label for="input1">Graduation Year</label>
+                                        </div>
+
+                                         <div class="form-group m-b-40">
+                                             <select class="form-control" name="bg" required="" style="height:2.3em">
+                                                 <option>
+                                                     A +ve
+                                                 </option>
+                                                  <option>
+                                                     A -ve
+                                                 </option>
+                                                  <option>
+                                                     B +ve
+                                                 </option>
+                                                  <option>
+                                                     B -ve
+                                                 </option>
+                                                 <option>
+                                                     O +ve
+                                                 </option>
+                                                  <option>
+                                                     O -ve
+                                                 </option>
+                                                 <option>
+                                                     AB +ve
+                                                 </option>
+                                                  <option>
+                                                     AB -ve
+                                                 </option>
+
+
+                                             </select>
+
+                                            <label for="input1">Blood Group</label>
+                                        </div>
+
+                                        <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                        <div class="form-control" data-trigger="fileinput"> <i class="fa fa-file-text-o fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+                        <span class="input-group-addon fileupload btn btn-primary btn-anim btn-file"><i class="fa fa-upload"></i> <span class="fileinput-new btn-text">Select file</span> <span class="fileinput-exists btn-text">Change</span>
+                        <input type="file" name="mempic" >
+                        </span> <a href="#" class="input-group-addon btn btn-danger btn-anim fileinput-exists" data-dismiss="fileinput"><i class="fa fa-trash"></i><span class="btn-text"> Trash</span></a> </div>
+                                        <label class="col-md-12">Photo Of Member<span class="help"></span></label>
+
+
+<br>
+
+
+
+                                        <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                        <div class="form-control" data-trigger="fileinput"> <i class="fa fa-file-text-o fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+                        <span class="input-group-addon fileupload btn btn-primary btn-anim btn-file"><i class="fa fa-upload"></i> <span class="fileinput-new btn-text">Select file</span> <span class="fileinput-exists btn-text">Change</span>
+                        <input type="file" name="idproof" >
+                        </span> <a href="#" class="input-group-addon btn btn-danger btn-anim fileinput-exists" data-dismiss="fileinput"><i class="fa fa-trash"></i><span class="btn-text"> Trash</span></a> </div>
+ <label class="col-md-12">ID Proof Of Member<span class="help"></span></label>
+
+
+<br>
+
+
+                                        <button type="submit" class="btn btn-success">Submit</button>
+
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+{% endif %}
+
+
+<script>
+   $("#success-alert").fadeTo(1000, 500).slideUp(500, function(){
+    $("#success-alert").alert('close');
+});
+</script>
+{% endblock %}

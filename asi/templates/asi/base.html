@@ -1,0 +1,382 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<meta name="description" content="" />
+<meta name="keywords" content="admin, admin dashboard, admin template" />
+<meta name="author" content="SRGIT" />
+<!-- Favicon -->
+<link rel="shortcut icon" href="{% static 'plugins/assets/img/favicon/favicon.png" />
+<link rel="icon" href="{% static 'plugins/assets/img/favicon/favicon.png" type="image/x-icon" />
+
+
+
+  <link href="{% static 'plugins/vendors/bower_components/forms-mod-bootstrap/dist/css/forms-mod-bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+<!-- Data table CSS -->
+<link href="{% static 'plugins/vendors/bower_components/datatables/media/css/jquery.dataTables.min.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'plugins/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css' %}" rel="stylesheet" type="text/css" />
+<!-- Custom CSS -->
+<link href="{% static 'plugins/assets/css/default.css' %}" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+<!-- Preloader -->
+<div class="preloader-it">
+  <div class="preloader">
+    <div class="circles-1">
+      <div class="circles-1-center"></div>
+      <div class="circles-1"></div>
+      <div class="circles-1"></div>
+      <div class="circles-1"></div>
+      <div class="circles-1"></div>
+      <div class="circles-1"></div>
+      <div class="circles-1"></div>
+    </div>
+  </div>
+</div>
+<!-- //Preloader -->
+<div class="wrapper light-theme"> 
+  <!-- Top Header -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="mobile-only-brand pull-left">
+      <div class="nav-header pull-left">
+        <div class="logo-wrap"> <a href="./index.html"> <img class="brand-img" src="{% static 'plugins/assets/img/logo.png' %}" alt="brand" /> <span class="brand-text">[ MAC<strong>GOA</strong> ]</span> </a> </div>
+      </div>
+      <a id="toggle-btn" class="toggle-left-nav-btn inline-block ml-20 pull-left" href="javascript:void(0);"><i class="mdi mdi-format-list-bulleted"></i></a> <a id="toggle_mobile_search" data-toggle="collapse" data-target="#search_form" class="mobile-only-view" href="javascript:void(0);"><i class="mdi mdi-search"></i></a> <a id="toggle_mobile_nav" class="mobile-only-view" href="javascript:void(0);"><i class="mdi mdi-more"></i></a>
+      <form id="search_form" role="search" class="top-nav-search collapse pull-left" />
+        <div class="input-group">
+          <input type="text" name="example-input1-group2" class="form-control" placeholder="Search" />
+          <span class="input-group-btn">
+          <button type="button" class="btn btn-default" data-target="#search_form" data-toggle="collapse" aria-label="Close" aria-expanded="true"><i class="pe-7s-search"></i></button>
+          </span> </div>
+      </form>
+    </div>
+    <div id="mobile_right_sidebar" class="mobile-right-sidebar pull-right">
+      <ul class="nav navbar-right top-nav pull-right">
+        <li> <a id="open_right_sidebar" href="#"><i class="pe-7s-edit top-nav-icon"></i></a> </li>
+
+        <li class="dropdown alert-drp"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="pe-7s-alarm top-nav-icon"></i><span class="top-nav-icon-badge btn-sonar">1</span></a>
+          <ul class="dropdown-menu alert-dropdown" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+            <li>
+              <div class="notification-box-head-wrap"> <span class="notification-box-head pull-left inline-block">notifications</span> <a class="txt-danger pull-right clear-notifications inline-block" href="javascript:void(0)"> clear all </a>
+                <div class="clearfix"></div>
+                <hr class="light-grey-hr ma-0" />
+              </div>
+            </li>
+            <li>
+              <div class="streamline message-nicescroll-bar">
+                <!--
+                <hr class="light-grey-hr ma-0" />
+                <div class="sl-item"> <a href="javascript:void(0)">
+                  <div class="icon bg-blue"> <i class="mdi mdi-comment-text"></i> </div>
+                  <div class="sl-content"> <span class="inline-block capitalize-font  pull-left truncate head-notifications">61 new messages</span> <span class="inline-block font-11  pull-right notifications-time">6am</span>
+                    <div class="clearfix"></div>
+                    <p class="truncate"> Neque porro quisquam est.</p>
+                  </div>
+                  </a> </div>
+                <hr class="light-grey-hr ma-0" />
+                <div class="sl-item"> <a href="javascript:void(0)">
+                  <div class="sl-avatar"> <img class="img-responsive" src="{% static 'plugins/assets/img/users/avatar-1.jpg" alt="avatar" /> </div>
+                  <div class="sl-content"> <span class="inline-block capitalize-font  pull-left truncate head-notifications">Vivian Rox</span> <span class="inline-block font-11  pull-right notifications-time">3pm</span>
+                    <div class="clearfix"></div>
+                    <p class="truncate">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit</p>
+                  </div>
+                  </a> </div>
+                <hr class="light-grey-hr ma-0" />
+                <div class="sl-item"> <a href="javascript:void(0)">
+                  <div class="icon bg-red"> <i class="mdi mdi-storage"></i> </div>
+                  <div class="sl-content"> <span class="inline-block capitalize-font  pull-left truncate head-notifications txt-danger">99% server space occupied.</span> <span class="inline-block font-11  pull-right notifications-time">1pm</span>
+                    <div class="clearfix"></div>
+                    <p class="truncate">consectetur, adipisci velit.</p>
+                  </div>
+                  </a> </div>-->
+              </div>
+            </li>
+            <li>
+              <div class="notification-box-bottom-wrap">
+                <hr class="light-grey-hr ma-0" />
+                <a class="block text-center read-all" href="javascript:void(0)"> read all </a>
+                <div class="clearfix"></div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown auth-drp"> <a href="/asi/logout/"  >Logout</a>
+          <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+            <li> <a href="./profile.html"><i class="mdi mdi-account"></i><span>Profile</span></a> </li>
+
+            <li class="divider"></li>
+            <li> <a href="/logout/"><i class="mdi mdi-power"></i><span>Log Out</span></a> </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- /Top Menu Items -->
+
+
+  <!-- Left Sidebar Menu -->
+
+
+
+  <div class="fixed-sidebar-left">
+    <ul class="nav navbar-nav side-nav nicescroll-bar">
+      <li class="navigation-header"> <span>Main</span> <i class="mdi mdi-more"></i> </li>
+
+        <li> <a href="/asi/" data-toggle="collapse" data-target="#admin-dash">
+        <div class="pull-left"><i class="mdi mdi-apps mr-20"></i><span class="right-nav-text">Dashboard</span></div>
+        <div class="pull-right"><i class="mdi mdi-chevron-right"></i></div>
+        <div class="clearfix"></div>
+        </a>
+
+      </li>
+
+      <li> <a href="/asi/payments/" data-toggle="collapse" data-target="#admin-dash">
+        <div class="pull-left"><i class="mdi mdi-apps mr-20"></i><span class="right-nav-text">Payments</span></div>
+        <div class="pull-right"><i class="mdi mdi-chevron-right"></i></div>
+        <div class="clearfix"></div>
+        </a>
+
+      </li>
+
+
+
+
+
+
+
+    </ul>
+  </div>
+
+  <!-- /Left Sidebar Menu -->
+
+  <!-- Right Sidebar Menu -->
+  <div class="fixed-sidebar-right">
+    <ul class="right-sidebar">
+      <li>
+        <div class="tab-struct user-tabs">
+          <ul role="tablist" class="nav nav-tabs" id="right_sidebar_tab">
+            <li class="active" role="presentation"><a aria-expanded="true" data-toggle="tab" role="tab" id="chat_tab_btn" href="#chat_tab"><i class="fa fa-trello"></i></a></li>
+            <li role="presentation" class=""><a data-toggle="tab" id="messages_tab_btn" role="tab" href="#messages_tab" aria-expanded="false"><i class="fa fa-file"></i></a></li>
+          </ul>
+          <div class="tab-content" id="right_sidebar_content">
+            <div id="chat_tab" class="tab-pane fade active in" role="tabpanel">
+              <div class="chat-cmplt-wrap">
+                <div class="chat-box-wrap">
+                  <div class="add-friend"> <span class="inline-block txt-dark">Activity</span> <a href="javascript:void(0)" class="inline-block text-right txt-grey"><i class="mdi mdi-plus"></i></a> <a href="javascript:void(0)" class="inline-block txt-grey"> <i class="mdi mdi-more"></i> </a>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div id="chat_list_scroll">
+                    <div class="nicescroll-bar">
+                      <ul class="chat-list-wrap">
+
+          {% block actlog %}
+
+
+                          {% endblock %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="recent-chat-box-wrap">
+                  <div class="recent-chat-wrap">
+                    <div class="panel-heading ma-0">
+                      <div class="goto-back"> <a id="goto_back" href="javascript:void(0)" class="inline-block txt-grey"> <i class="mdi mdi-chevron-left"></i> </a> <span class="inline-block txt-dark">Max</span> <a href="javascript:void(0)" class="inline-block text-right txt-grey"><i class="mdi mdi-more"></i></a>
+                        <div class="clearfix"></div>
+                      </div>
+                    </div>
+                    <div class="panel-wrapper collapse in">
+                      <div class="panel-body pa-0">
+                        <div class="chat-content">
+                        </div>
+                        <div class="input-group">
+                          <input type="text" id="input_msg_send" name="send-msg" class="input-msg-send form-control" placeholder="Type something" />
+                          <div class="input-group-btn emojis">
+                            <div class="dropup">
+                              <button type="button" class="btn  btn-default  dropdown-toggle" data-toggle="dropdown"><i class="mdi mdi-mood"></i></button>
+                              <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="javascript:void(0)">Action</a></li>
+                                <li><a href="javascript:void(0)">Another action</a></li>
+                                <li class="divider"></li>
+                                <li><a href="javascript:void(0)">Separated link</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="input-group-btn attachment">
+                            <div class="fileupload btn  btn-default"><i class="mdi mdi-attachment-alt"></i>
+                              <input type="file" class="upload" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="messages_tab" class="tab-pane fade" role="tabpanel">
+              <div class="message-box-wrap">
+                <div class="add-friend"> <span class="inline-block txt-dark">Information Files</span> <a href="javascript:void(0)" class="inline-block text-right txt-grey"><i class="mdi mdi-search"></i></a> <a href="javascript:void(0)" class="inline-block txt-grey"> <i class="mdi mdi-more"></i> </a>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="set-height-wrap">
+                  <div class="streamline message-box nicescroll-bar"> <a href="javascript:void(0)">
+
+                    Downloadable Information Files Will Be Available Here
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- /Right Sidebar Menu --> 
+  <!-- Main Content -->
+  <div class="page-wrapper">
+    <div class="container-fluid min-ht-600">
+<div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="panel panel-default card-view pa-0">
+            <div class="panel-wrapper collapse in">
+              <div class="panel-body pa-0">
+                <div class="sm-data-box">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-xs-6 pl-20 pr-0 data-wrap-left"> <span class="txt-dark block counter"><span class="">{% block p1 %} {% endblock %}</span></span> <span class="weight-500 uppercase-font block">First Phase</span> </div>
+                      <div class="col-xs-6 text-center  pl-0 pr-0 pt-30 data-wrap-right">
+                      <button class="btn btn-success btn-icon-w-animt btn-circle "><i class="fa fa-inr"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="panel panel-default card-view pa-0">
+            <div class="panel-wrapper collapse in">
+              <div class="panel-body pa-0">
+                <div class="sm-data-box">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-xs-6 pl-20 pr-0 data-wrap-left"> <span class="txt-dark block counter"><span class="">{% block p2 %} {% endblock %}</span></span> <span class="weight-500 uppercase-font block">Second phase</span> </div>
+                      <div class="col-xs-6 text-center  pl-0 pr-0  pt-30 data-wrap-right">
+                       <button class="btn btn-success btn-icon-w-animt btn-circle "><i class="fa fa-inr"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="panel panel-default card-view pa-0">
+            <div class="panel-wrapper collapse in">
+              <div class="panel-body pa-0">
+                <div class="sm-data-box">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-xs-6 pl-20 pr-0 data-wrap-left"> <span class="txt-dark block counter"><span class="counter-anim">{% block members %}{% endblock %}</span></span> <span class="weight-500 uppercase-font block">Teams </span> </div>
+                      <div class="col-xs-6 text-center  pl-0 pr-0 pt-20 data-wrap-right">
+                        <div class="progress progress-lg">
+                <div class="progress-bar progress-bar-info active progress-bar-striped" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" role="progressbar" style='width:{% block per %} {% endblock %}%'> <span class="sr-only"></span> </div>
+              </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="panel panel-default card-view pa-0">
+            <div class="panel-wrapper collapse in">
+              <div class="panel-body pa-0">
+                <div class="sm-data-box">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-xs-6 pl-20 pr-0 data-wrap-left"> <span class="txt-dark block counter"><span class="">{% block carnum %}{% endblock %}</span></span> <span class="weight-500 uppercase-font block">Car Number </span> </div>
+                      <div class="col-xs-6 text-center  pl-0 pr-0 pt-25  data-wrap-right">
+                        <div class="flot-container h-55">
+                          <div id="" class=""><i class="fa fa-car" style="font-size: 4em;color: orange;" aria-hidden="true"></i> </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</div>
+
+    {% block content %}
+
+
+
+      {% endblock %}
+
+      <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+    <!-- Row--> 
+    <!-- Footer -->
+    <footer class="footer container-fluid pt-10 pb-10  pl-30 pr-30">
+      <div class="row">
+        <div class="col-sm-12 ">
+          <div class="pull-left text-dark pt-5 small">Copyright @ 2018 Autosports India Pvt. Ltd. All Rights Reserved</div>
+           <div class="clearfix"></div>
+        </div>
+      </div>
+    </footer>
+    <!-- /Footer --> 
+  </div>
+</div>
+<!-- /Main Content -->
+<!-- /#wrapper --> 
+<!-- JavaScript --> 
+<!-- jQuery --> 
+  <script src="{% static 'plugins/vendors/bower_components/jquery/dist/jquery.min.js' %}"></script>s
+<!-- Bootstrap Core JavaScript --> 
+<script src="{% static 'plugins/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script> 
+<!-- Data table JavaScript --> 
+<script src="{% static 'plugins/vendors/bower_components/datatables/media/js/jquery.dataTables.min.js' %}"></script> 
+<!-- Slimscroll JavaScript --> 
+<script src="{% static 'plugins/assets/js/jquery.slimscroll.js' %}"></script> 
+<!-- Owl JavaScript --> 
+<script src="{% static 'plugins/vendors/bower_components/owl.carousel/dist/owl.carousel.min.js' %}"></script> 
+<script src="{% static 'plugins/vendors/bower_components/owl.carousel/dist/owl.carousel.min.js' %}"></script> 
+<!-- Progressbar Animation JavaScript --> 
+<script src="{% static 'plugins/vendors/bower_components/waypoints/lib/jquery.waypoints.min.js' %}"></script> 
+<script src="{% static 'plugins/vendors/bower_components/jquery.counterup/jquery.counterup.min.js' %}"></script> 
+<!-- Fancy Dropdown JS --> 
+<script src="{% static 'plugins/assets/js/dropdown-bootstrap-extended.js' %}"></script> 
+<!-- FlotChart JavaScript --> 
+<script src="{% static 'plugins/vendors/bower_components/flot/jquery.flot.js' %}"></script> 
+<script src="{% static 'plugins/assets/js/flot-data-dashboard.js' %}"></script> 
+<script src="{% static 'plugins/vendors/bower_components/skycons/skycons.js' %}"></script> 
+<!-- Sparkline JavaScript --> 
+<script src="{% static 'plugins/vendors/jquery.sparkline/dist/jquery.sparkline.min.js' %}"></script> 
+<!-- Switchery JavaScript --> 
+<script src="{% static 'plugins/vendors/bower_components/switchery/dist/switchery.min.js' %}"></script> 
+<!-- EChartJS JavaScript --> 
+<script src="{% static 'plugins/vendors/bower_components/echarts/dist/echarts-en.min.js' %}"></script> 
+<!-- Toast JavaScript --> 
+<script src="{% static 'plugins/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js' %}"></script> 
+<!-- Init JavaScript --> 
+<script src="{% static 'plugins/assets/js/init.js' %}"></script> 
+<script src="{% static 'plugins/assets/js/dashboard.init.js' %}"></script>
+
+<script src="{% static 'plugins/vendors/bower_components/forms-mod-bootstrap/dist/js/forms-mod-bootstrap.min.js' %}"></script>
+
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

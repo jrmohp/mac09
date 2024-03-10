@@ -1,0 +1,181 @@
+{% extends "user/base.html" %}
+
+
+{% load staticfiles %}
+
+
+
+
+{% block profright %}
+
+
+
+/media/{{tid.teamlogo}}
+{% endblock %}
+
+
+
+{% block p1 %}
+
+    {{p1}}
+
+{% endblock %}
+{% block p1h %}{{p1h}} {% endblock %}
+
+{% block carnum %}{{cnum}}{% endblock %}
+{% block p2 %}
+
+    {{p2}}
+
+{% endblock %}
+{% block p2h %}{{p2h}} {% endblock %}
+
+{% block members %}{{memnum}}{% endblock %}
+{% block per %} {{memper}}{% endblock %}
+
+{% block actlog %}
+
+  {% for act in log %}
+
+  <li class="chat-list">
+                          <div class="chat-body"> <a href="">
+                            <div class="chat-data"> <img class="user-img img-circle" src="{% static 'plugins/assets/img/users/avatar-2.jpg' %}" alt="user" />
+                              <div class="user-data"> <span class="name block capitalize-font">{{act.activitydetails}}</span> <span class="time block truncate txt-grey">{{act.entered}}</span> </div>
+                              <div class="status away"></div>
+                              <div class="clearfix"></div>
+                            </div>
+                            </a> <a href="">
+                            </div>
+                        </li>
+
+
+
+{% endfor %}
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block content %}
+
+<div class="alert alert-success alert-dismissable">
+                                                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                       Invoice for payments made before 15th June can be obtained by mailing us at mail@autosportsindia.com
+                                                   </div>
+<div class="alert alert-success alert-dismissable">
+                                                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                       Invoices Of Payments Made After 15th June Will Be Available Here.
+                                                   </div>
+
+
+{% if  tid.payment1 or tid.payment2 %}
+<div class="row">
+                    <div class="col-md-12">
+                        <div class="well-lg card-view">
+
+
+                            <div class="row">
+
+                                <center>
+    <div class="col-lg-2 col-md-2 ">
+    </div>
+                                      {% if tid.payment1 %}
+
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <input type="button" class="btn-success btn-lg" value="Phase 1" onclick="dwninv1()">
+                                    </div>
+
+
+                                {% endif %}
+
+
+                                {% if tid.payment2 %}
+
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                   <input type="button" class="btn-success btn-lg" value="Phase 2" onclick="dwninv2()">
+                                    </div>
+
+                                {% endif %}
+
+                                </center>
+
+
+
+
+
+
+
+
+
+                            </div>
+
+
+
+                    </div>
+                </div>
+
+
+
+
+{% endif %}
+
+{% if  not tid.payment1 and not tid.payment2 %}
+
+
+<div class="row">
+                    <div class="col-md-12">
+                        <div class="well-lg card-view">
+
+
+                            <div class="row">
+                                <div class="col-lg-2 col-md-2 col-sm-1">
+
+                                </div>
+
+                                <div class="col-lg-8 col-md-8 col-sm-12">
+                                    <br>
+                                     <center><h2>Nothing Here For You ! </h2></center>
+                                </div>
+
+
+
+
+                            </div>
+
+
+
+                    </div>
+                </div>
+
+
+
+
+{% endif %}
+
+    <script>
+        function dwninv1()
+        {
+            window.location.assign("/inv?phase=Phase1")
+        }
+
+
+         function dwninv2()
+        {
+            window.location.assign("/inv?phase=Phase2")
+        }
+    </script>
+
+
+
+
+
+{% endblock %}

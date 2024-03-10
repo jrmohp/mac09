@@ -1,0 +1,174 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<div class="content-body border" id="content">
+        <section class="card">
+          <div id="invoice-template" class="card-body">
+            <!-- Invoice Company Details -->
+            <div id="invoice-company-details" class="row">
+              <div class="col-md-8 col-sm-12 text-center text-md-left">
+                <div class="media">
+                  <img src="https://atvchampionship.com/wp-content/uploads/2017/06/auto-aports-megaatv-championship.png" alt="company logo" class="" style="max-height: 70px">
+
+
+
+                  <div class="media-body ">
+                    <ul class="ml-5 px-0 list-unstyled">
+                      <b><li class="text-bold-800">Mechies Autosports India Pvt. Ltd.</li></b>
+                      <li>#8, Surya Vihar, </li>
+                      <li>Patia,</li>
+                      <li>Bhubaneswar,Odisha‐024</li>
+                      <li>India</li>
+                      <li></li>
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-12 text-center text-md-right">
+                <h2>INVOICE</h2>
+                <p class="pb-3"># {{p.id}}</p>
+                <ul class="px-0 list-unstyled">
+                  <li>mail@autosportsindia.com</li>
+                  <li >CIN ‐ U50404OR2015PTC018953</li>
+                  <li>GSTIN‐21AAJCM8499H1Z0</li>
+                </ul>
+              </div>
+            </div>
+            <!--/ Invoice Company Details -->
+            <!-- Invoice Customer Details -->
+            <div id="invoice-customer-details" class="row pt-2">
+              <div class="col-sm-12 text-center text-md-left">
+                <p class="text-muted">Bill To</p>
+              </div>
+              <div class="col-md-4 col-sm-12 text-center text-md-left">
+                <ul class="px-0 list-unstyled">
+                  <li class="text-bold-800">{{p.lname}}</li>
+                  <li>
+                   {{p.address}}
+                  </li>
+                  <li>
+                    {{p.state}}
+                  </li>
+                  <li>
+                    State Code: {{p.sc}}
+                  </li>
+
+                  <li>
+                    GSTIN : {{p.gstin}}
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-2 col-sm-12"></div>
+              <div class="col-md-6 col-sm-12 text-center text-md-right">
+                <p>
+                  <span class="text-muted">Invoice Date :</span> {{p.date}}</p>
+
+              </div>
+            </div>
+            <!--/ Invoice Customer Details -->
+            <!-- Invoice Items Details -->
+            <div id="invoice-items-details" class="pt-2">
+              <div class="row">
+                <div class="table-responsive col-sm-12">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th> Description</th>
+                        <th class="text-right">Qyantity</th>
+                        <th class="text-right">Rate</th>
+                        <th class="text-right">Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>
+                          <p>Phase 1</p>
+                          <p class="text-muted">Registration Fee For Mega ATV Championship</p>
+                        </td>
+                        <td class="text-right"> 1</td>
+                        <td class="text-right">Rs {{p.amt}}</td>
+                        <td class="text-right">Rs {{p.amt}}</td>
+                      </tr>
+
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-7 col-sm-12 text-center text-md-left">
+                  <p class="lead"></p>
+                  <div class="row">
+                    <div class="col-md-8">
+
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5 col-sm-12">
+                  <p class="lead">Total due</p>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <td>Sub Total</td>
+                          <td class="text-right">Rs  {{p.amt}}</td>
+                        </tr>
+                        <tr>
+                          <td>IGST (18%)</td>
+                          <td class="text-right">Rs {{p.tax}}</td>
+                        </tr>
+                        <tr>
+                          <td class="text-bold-800">Total</td>
+                          <td class="text-bold-800 text-right"> Rs {{p.total}}</td>
+                        </tr>
+
+
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="text-center">
+                    <p>This is a computer generated invouce and requires no signature</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Invoice Footer -->
+            <div id="invoice-footer">
+              <div class="row">
+                <div class="col-md-7 col-sm-12">
+                  <h6>Note</h6>
+                  <p><b>Certified that the Particulars given above are true and correct and the amount indicated:</b>
+a)represent the price actually charged and that there is no flow additional consideration directly
+or indirectly from the buyer or<br>
+b)is provisional as additional consideration will be received from the buyer on account of</p>
+                </div>
+                <div class="col-md-5 col-sm-12 text-center">
+
+                </div>
+              </div>
+
+<div class="row">
+                <div class="col-md-7 col-sm-12">
+                  <h6>Terms &amp; Condition</h6>
+                  <p>1) The registration money is not refundable under any circumstances<br>
+2)Buyer undertakes to submit prescribted ST declaration to sender on damand.Disputes if any will
+be subject to service provider's court jurisdication.
+
+                  </p>
+                </div>
+                <div class="col-md-5 col-sm-12 text-center">
+
+                </div>
+              </div>
+
+            </div>
+            <!--/ Invoice Footer -->
+          </div>
+        </section>
+      </div>
+
+
+<!-- Latest compiled JavaScript -->

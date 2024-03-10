@@ -1,0 +1,182 @@
+{% extends "user/base.html" %}
+
+{% load static %}
+{% block profright %}
+
+
+
+/media/{{tid.teamlogo}}
+{% endblock %}
+
+
+
+{% block p1 %}
+
+    {{p1}}
+
+{% endblock %}
+{% block p1h %}{{p1h}} {% endblock %}
+
+
+{% load mathfilters %}
+{% block carnum %}
+
+{% if iselec %}
+E-{{cnum|sub:100}}
+{% else %}
+
+{{cnum}}
+{% endif %}
+{% endblock %}
+
+{% block p2 %}
+
+    {{p2}}
+
+{% endblock %}
+{% block p2h %}{{p2h}} {% endblock %}
+
+{% block members %}{{memnum}}{% endblock %}
+{% block per %} {{memper}}{% endblock %}
+
+{% block actlog %}
+
+  {% for act in log %}
+
+  <li class="chat-list">
+                          <div class="chat-body"> <a href="">
+                            <div class="chat-data"> <img class="user-img img-circle" src="{% static 'plugins/assets/img/users/avatar-2.jpg' %}" alt="user" />
+                              <div class="user-data"> <span class="name block capitalize-font">{{act.activitydetails}}</span> <span class="time block truncate txt-grey">{{act.entered}}</span> </div>
+                              <div class="status away"></div>
+                              <div class="clearfix"></div>
+                            </div>
+                            </a> <a href="">
+                            </div>
+                        </li>
+
+
+
+{% endfor %}
+
+
+
+
+
+{% endblock %}
+
+ {% block content %}
+
+<title>Edit Profile | Mega ATV Championship 2019</title>
+
+
+<div class="panel panel-default">
+                            <div class="panel-wrapper collapse in">
+                                <div class="panel-body">
+
+
+
+
+
+                                    <form  method="post" action="/editp/" enctype="multipart/form-data">
+
+                                                {% csrf_token %}
+                                 <label class="col-md-12">Team Name <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" value="{{tid.teamname}}" name="tname"> </div>
+
+
+
+                                    <label class="col-md-12">Team Captain <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" value="{{tid.tcap}}" name="cap"> </div>
+
+
+                                    <label class="col-md-12">Institution Type<span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" value="{{tid.itype}}" name="itype"> </div>
+
+
+
+                                    <label class="col-md-12">Email <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" value="{{tid.email}}" name="email"> </div>
+
+                                     <label class="col-md-12">Coach  <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" value="{{tid.coach}}" name="coach"> </div>
+
+                                     <label class="col-md-12">Team Size <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" value="{{tid.size}}"> </div>
+
+
+                                         <label class="col-md-12">Phone No <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" value="{{tid.phn}}"  name="phn"> </div>
+
+
+
+                                         <label class="col-md-12">Alternate Phone No. <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" value="{{tid.altphn}}" name="altphn"> </div>
+
+                                         <label class="col-md-12">Size <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="number" class="form-control" value="{{tid.size}}" name="size"> </div>
+
+                                     <label class="col-md-12">Address <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <textarea class="form-control"  name="addrs">
+                                            {{tid.address}}
+
+                                        </textarea>
+
+
+
+
+<label class="col-md-12">Team Logo<span class="help"></span></label>
+
+
+
+<div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                        <div class="form-control" data-trigger="fileinput"> <i class="fa fa-file-text-o fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+                        <span class="input-group-addon fileupload btn btn-primary btn-anim btn-file"><i class="fa fa-upload"></i> <span class="fileinput-new btn-text">Select file</span> <span class="fileinput-exists btn-text">Change</span>
+                        <input type="file" name="myfile">
+                        </span> <a href="#" class="input-group-addon btn btn-danger btn-anim fileinput-exists" data-dismiss="fileinput"><i class="fa fa-trash"></i><span class="btn-text"> Trash</span></a> </div>
+
+
+                                        <img class="img-responsive" src="/media/{{tid.teamlogo}}" alt="Team Logo" width="20%">
+
+
+
+
+
+
+
+
+
+
+
+
+    <br>
+                                        <br>
+                                        <center> <button type="submit" class="btn btn-success btn-lg">Submit</button></center>
+
+
+
+
+        </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,233 @@
+{% extends "user/base.html" %}
+
+
+
+
+
+
+
+
+
+
+{% load static %}
+{% block profright %}
+
+
+
+/media/{{tid.teamlogo}}
+{% endblock %}
+
+
+
+{% block p1 %}
+
+    {{p1}}
+
+{% endblock %}
+{% block p1h %}{{p1h}} {% endblock %}
+
+{% load mathfilters %}
+{% block carnum %}
+
+{% if iselec %}
+E-{{cnum|sub:100}}
+{% else %}
+
+{{cnum}}
+{% endif %}
+{% endblock %}
+{% block p2 %}
+
+    {{p2}}
+
+{% endblock %}
+{% block p2h %}{{p2h}} {% endblock %}
+
+{% block members %}{{memnum}}{% endblock %}
+{% block per %} {{memper}}{% endblock %}
+
+{% block actlog %}
+
+  {% for act in log %}
+
+  <li class="chat-list">
+                          <div class="chat-body"> <a href="">
+                            <div class="chat-data"> <img class="user-img img-circle" src="{% static 'plugins/assets/img/users/avatar-2.jpg' %}" alt="user" />
+                              <div class="user-data"> <span class="name block capitalize-font">{{act.activitydetails}}</span> <span class="time block truncate txt-grey">{{act.entered}}</span> </div>
+                              <div class="status away"></div>
+                              <div class="clearfix"></div>
+                            </div>
+                            </a> <a href="">
+                            </div>
+                        </li>
+
+
+
+{% endfor %}
+
+
+
+
+
+{% endblock %}
+{% block content %}
+
+<title>Dashboard | Mega ATV Championship</title>
+
+
+
+
+
+
+
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+      <div class="panel panel-default card-view  pa-0">
+        <div class="panel-wrapper collapse in">
+          <div class="panel-body  pa-0">
+            <div class="profile-box">
+              <div class="profile-cover-pic">
+                <div class=""> <span class="btn-text"><i class=""></i></span>
+
+                </div>
+                <div class="profile-image-overlay"></div>
+              </div>
+              <div class="profile-info text-center">
+                <div class="profile-img-wrap"> <img class="inline-block mb-10" src="/media/{{tid.teamlogo}}" alt="user">
+
+
+                         <div class=""> <span class=""><i class=""></i></span>
+
+
+
+
+                  </div>
+                </div>
+                <h5 class="block mt-5 mb-5 weight-500 capitalize-font txt-primary">{{tid.teamname}}</h5>
+                <h6 class="block capitalize-font pb-10">{{tid.teamid}}</h6>
+
+                  {% if tid.rsvp %}
+                 <h6 class="block capitalize-font pb-10" style="color:green;animation: blink 1s infinite;">RSVP : Confirmed</h6>
+                  {% endif %}
+              </div>
+              <div class="social-info">
+                <div class="row">
+                  <div class="col-xs-6 text-center"> <span class="counts block head-font"><span class="">{{tid.tcap}} </span></span> <span class="counts-text block">Team Captain</span> </div>
+                  <div class="col-xs-6 text-center"> <span class="counts block head-font"><span class="">{{tid.coach}}</span></span> <span class="counts-text block">Team Coach/Trainer</span> </div>
+
+
+                </div>
+
+                  <div class="social-info">
+                <div class="row">
+                  <div class="col-xs-6 text-center"> <span class="counts block head-font"><span class="">{{tid.email}}</span></span> <span class="counts-text block">Email ID</span> </div>
+                  <div class="col-xs-6 text-center"> <span class="counts block head-font"><span class="">{{tid.phn}}</span></span> <span class="counts-text block">Contact No.</span> </div>
+
+
+                </div>
+                        <div class="row">
+                  <div class="col-xs-12 text-center"> <span class="counts block head-font"><span class="">{{tid.iname}}</span></span> <span class="counts-text block">Institution Name</span> </div>
+
+
+
+                </div>
+                        <div class="row">
+                  <div class="col-xs-12 text-center"> <span class="counts block head-font"><span class="">{{tid.address}}</span></span> <span class="counts-text block">Communication Address</span> </div>
+
+
+                </div>
+
+
+                <a href="/editprofile/"> <button class="btn btn-primary btn-block  btn-anim mt-10" data-toggle="modal"><i class="fa fa-pencil"></i><span class="btn-text">edit profile</span></button></a>
+
+
+                    <!-- /.modal-content -->
+
+                  <!-- /.modal-dialog -->
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+          {% if tid.rsvp %}
+        <div class="modal fade bs-example-modal-lg d-none in" tabindex="-1" role="dialog" id="modal-custom" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: block; padding-right: 17px;background-color: lightgreen">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" onclick="closemodal()" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h5 class="modal-title" id="myLargeModalLabel">On-Site Participation : Confirmed</h5>
+                      </div>
+<!--                      <div class="modal-body">-->
+<!--                        <h5 class="mb-15">On-Site Participation Confirmed</h5>-->
+<!--                        <p>Your previous registration fees have been carry forwarded to this year. The registration fees for Season 6 is rupees 70,800/-, hence the difference amount rupees 11,800/- is pending which to be made on or before 10th March 2021, 18:00 Hrs.</p>-->
+<!--                      </div>-->
+<!--                      <div class="modal-footer">-->
+<!--                        <button type="button" class="btn btn-danger text-left" data-dismiss="modal" onclick="closemodal()">Close</button>-->
+<!--                      </div>-->
+                    </div>
+                    <!-- /.modal-content -->
+                  </div>
+                  <!-- /.modal-dialog -->
+                </div>
+
+<!--<div class="modal-backdrop fade in" id="modal-layover"></div>-->
+
+<!--          {% else %}-->
+<!--        <div class="modal fade bs-example-modal-lg d-none in" tabindex="-1" role="dialog" id="modal-custom" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: block; padding-right: 17px;background-color: red">-->
+<!--                  <div class="modal-dialog modal-lg">-->
+<!--                    <div class="modal-content">-->
+<!--                      <div class="modal-header">-->
+<!--                        <button type="button" class="close" onclick="closemodal()" data-dismiss="modal" aria-hidden="true">×</button>-->
+<!--                        <h5 class="modal-title" id="myLargeModalLabel">On-Site Participation : Not Confirmed</h5>-->
+<!--                      </div>-->
+<!--&lt;!&ndash;                      <div class="modal-body">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <h5 class="mb-15">On-Site Participation Confirmed</h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p>Your previous registration fees have been carry forwarded to this year. The registration fees for Season 6 is rupees 70,800/-, hence the difference amount rupees 11,800/- is pending which to be made on or before 10th March 2021, 18:00 Hrs.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <div class="modal-footer">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <button type="button" class="btn btn-danger text-left" data-dismiss="modal" onclick="closemodal()">Close</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </div>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; /.modal-content &ndash;&gt;-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; /.modal-dialog &ndash;&gt;-->
+<!--                </div>-->
+
+<!--<div class="modal-backdrop fade in" id="modal-layover"></div>-->
+
+          {% endif %}
+
+
+
+        <script>
+
+<!-- function season() {-->
+<!--  var m = "{{tid.created_at}}";-->
+<!--  var rest = m.substring(0, m.lastIndexOf(","));-->
+<!--  var d = Date.parse(rest);-->
+<!--  if (d>1584469800000)-->
+<!--  {-->
+<!--  var modal = document.getElementById("modal-custom");-->
+<!--  modal.remove();-->
+<!--  var modal_layover = document.getElementById("modal-layover");-->
+<!--  modal_layover.remove();-->
+<!--  }-->
+
+<!--}-->
+
+<!--          function closemodal() {-->
+<!--  var modal = document.getElementById("modal-custom");-->
+<!--  modal.remove();-->
+<!--  var modal_layover = document.getElementById("modal-layover");-->
+<!--  modal_layover.remove();-->
+
+
+<!--}-->
+
+
+        </script>
+
+
+{% endblock %}

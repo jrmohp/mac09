@@ -1,0 +1,144 @@
+{% extends 'user/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+
+
+{% if not gst %}
+<div class="row">
+                    <div class="col-md-12">
+                        <div class="white-box">
+
+
+                            <div class="row">
+
+
+                                    <form method="post">
+                                        {% csrf_token %}
+
+                                        <label class="col-md-12">Legal Name (Using Which Bill Will Be Generated) <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control"  name="lname" > </div>
+
+
+        <label class="col-md-12">Full Address <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control"  name="addr" maxlength="50"> </div>
+
+         <label class="col-md-12">State <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control"  name="state"> </div>
+
+      <label class="col-md-12">GSTIN <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control"  name="gstin" minlength="15" maxlength="15" id="gstin" onchange="statecode()"> </div>
+
+      <label class="col-md-12">State Code <span class="help"></span></label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control"  name="scode" minlength="2" maxlength="2" id="scode"> </div>
+
+
+                                            <div class="col-md-12">
+
+
+                                                 <center>
+                                                      <br>
+                        <button class="btn btn-success btn-lg" type="submit">Submit</button>
+
+
+                    </center
+                                            </div>
+    <br>
+                                        <br>
+                   >
+
+
+                                    </form>
+
+
+
+                            </div>
+
+
+
+                    </div>
+                </div>
+
+
+ {% endif %}
+
+{% if  gst %}
+
+
+<div class="row">
+                    <div class="col-md-12">
+                        <div class="well-lg card-view">
+
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-12">
+                                     <img src="{% static 'tick.gif' %}" height="10%">
+                                </div>
+
+                                <div class="col-lg-8 col-md-8 col-sm-12">
+                                    <br>
+                                     <center><h2>You Have Already Submitted The Data</h2></center>
+                                </div>
+
+
+
+
+                            </div>
+
+
+
+                    </div>
+                </div>
+
+
+
+
+{% endif %}
+
+<script>
+    function statecode() {
+
+
+
+        gst = $("#gstin").val();
+        scode = gst.charAt(0)+gst.charAt(1);
+
+
+        $("#scode").val(scode);
+
+
+    }
+</script>
+
+
+
+  {% if uploaded_file_url == "Request Submitted" %}
+
+ <div class="alert alert-success alert-dismissable">
+                                                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                       {{ uploaded_file_url }}
+                                                   </div>
+
+  {% endif %}
+
+
+{% if uploaded_file_url == "Request Failed" %}
+
+ <div class="alert alert-danger alert-dismissable">
+                                                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                       {{ uploaded_file_url }}
+                                                   </div>
+
+  {% endif %}
+
+
+{% endblock %}
