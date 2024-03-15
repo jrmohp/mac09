@@ -20,7 +20,7 @@ from django.template import Context
 from django.core.files import File
 
 
-basemed = "/home/ubuntu/mac-07/"
+basemed = "/home/ubuntu/mac09/"
 
 
 
