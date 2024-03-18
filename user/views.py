@@ -20,7 +20,7 @@ from django.template import Context
 from django.core.files import File
 
 
-basemed = "/home/ubuntu/mac09/"
+basemed = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 
