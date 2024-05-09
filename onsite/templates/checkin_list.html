@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-In List</title>
+    <link rel="stylesheet" href="{% static 'onsite/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'onsite/all.min.css' %}">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="Search by Team Name" id="searchInput">
+            </div>
+        </div>
+        <table class="table table-striped" id="teamTable">
+            <thead>
+                <tr>
+                     <th>Payment 1</th>
+                    <th>Payment 2</th>
+                    <th>Team Name</th>
+                    <th>Team ID</th>
+                    <th>Car Number</th>
+                    <th>Annexure 1</th>
+                    <th>Annexure 2</th>
+                    <th>Annexure 3</th>
+                    <th>Faculty Accompanied</th>
+                    <th>Team Members Present</th>
+                    <th>Check-In</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for team in teams %}
+                <tr>
+                <td>{% if team.payment1 %}<input type="checkbox" {% if team.payment1 %}checked{% endif %} disabled>{% else %}<span style="color: red">&#9747;</span>{% endif %}</td>
+
+                  <td>{% if team.payment2 %}<input type="checkbox" {% if team.payment2 %}checked{% endif %} disabled>{% else %}<span style="color: red">&#9747;</span>{% endif %}</td>
+
+                    <td>{{ team.teamname }}</td>
+                    <td>{{ team.teamid }}</td>
+                    <td>{{ team.carnumber }}</td>
+
+
+                    <td>{% if team.checkin %}<input type="checkbox" {% if team.checkin.annexure1 %}checked{% endif %} disabled>{% else %}<span style="color: red">&#9747;</span>{% endif %}</td>
+                    <td>{% if team.checkin %}<input type="checkbox" {% if team.checkin.annexure2 %}checked{% endif %} disabled>{% else %}<span style="color: red">&#9747;</span>{% endif %}</td>
+                    <td>{% if team.checkin %}<input type="checkbox" {% if team.checkin.annexure3 %}checked{% endif %} disabled>{% else %}<span style="color: red">&#9747;</span>{% endif %}</td>
+                    <td>{% if team.checkin %}<input type="checkbox" {% if team.checkin.faculty_accompanied %}checked{% endif %} disabled>{% else %}<span style="color: red">&#9747;</span>{% endif %}</td>
+                    <td>{% if team.checkin %}{{ team.checkin.team_members_present }}{% else %}<span style="color: red">&#9747;</span>{% endif %}</td>
+                    <td><button class="btn btn-primary" onclick="openCheckinPopup('{{ team.id }}')">Check-In</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div id="checkinPopup" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Check-In Details</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <form id="checkinForm" method="post" action="{% url 'submit_checkin' %}">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <!-- Add fields for check-in details here -->
+  <input type="hidden" name="team_id" id="teamId">
+<div class="form-group">
+    <label for="annexure1">Annexure 1:</label>
+    <input type="checkbox" class="form-control" name="annexure1" id="annexure1" {% if team.checkin %} {% if team.checkin.annexure1 %}checked{% endif %} {% endif %}>
+</div>
+<div class="form-group">
+    <label for="annexure2">Annexure 2:</label>
+    <input type="checkbox" class="form-control" name="annexure2" id="annexure2" {% if team.checkin %} {% if team.checkin.annexure2 %}checked{% endif %} {% endif %}>
+</div>
+<div class="form-group">
+    <label for="annexure3">Annexure 3:</label>
+    <input type="checkbox" class="form-control" name="annexure3" id="annexure3" {% if team.checkin %} {% if team.checkin.annexure3 %}checked{% endif %} {% endif %}>
+</div>
+<div class="form-group">
+    <label for="faculty_accompanied">Faculty Accompanied:</label>
+    <input type="checkbox" class="form-control" name="faculty_accompanied" id="faculty_accompanied" {% if team.checkin %} {% if team.checkin.faculty_accompanied %}checked{% endif %} {% endif %}>
+</div>
+<div class="form-group">
+    <label for="team_members_present">Team Members Present:</label>
+    <input type="number" class="form-control" name="team_members_present" id="team_members_present" {% if team.checkin %} value="{{ team.checkin.team_members_present }}" {% endif %}>
+</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'onsite/jquery-3.5.1.slim.min.js' %}"></script>
+    <script src="{% static 'onsite/popper.min.js' %}"></script>
+    <script src="{% static 'onsite/bootstrap.min.js' %}"></script>
+
+    <script>
+        function openCheckinPopup(teamId) {
+            document.getElementById('checkinForm').reset();
+            document.getElementById('teamId').value = teamId;
+            $('#checkinPopup').modal('show');
+        }
+
+        // Add jQuery for table filtering
+        $(document).ready(function() {
+            $('#searchInput').on('keyup', function() {
+                var value = $(this).val().toLowerCase();
+                $('#teamTable tbody tr').filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+</body>
+</html>

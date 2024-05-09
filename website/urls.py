@@ -15,6 +15,7 @@ def custom_handler500(request, template_name='500.html'):
 urlpatterns = [
     re_path(r'^', include('user.urls')),
     re_path(r'^asi/', include('asi.urls')),
+    re_path(r'^onsite/', include('onsite.urls')),
     path('admin/', admin.site.urls),
 ]
 

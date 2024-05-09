@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
 
     'user.apps.UserConfig',
+    'onsite.apps.OnsiteConfig',
     'asi.apps.AsiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mathfilters'
+    'mathfilters',
+
 
 ]
 
@@ -84,15 +86,11 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',  # or 'django.db.backends.postgresql', etc.
-        'NAME': 'u683180532_mac09old',
-        'USER': 'u683180532_mac09old',
-        'PASSWORD': '4SvAgUqKKK0kYu5dbcFxWZAs',
-        'HOST': 'srv1331.hstgr.io',  # Or your production database host
-        'PORT': '3306',  # Default MySQL port
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'db.sqlite3',
+        }
     }
-}
 
 
 
